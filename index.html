@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI v škole: ai.iedu.sk, aidetem.cz a chatveskole.cz pre učiteľa</title>
+<style>
+:root{--fg:#1f2933;--muted:#5b6770;--line:#d9dee3;--bg:#f6f7f9;--card:#fff;--accent:#1d5fa8;--accent-soft:#e7f0fa;--warn:#fff4d6;--warn-line:#e3b341}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:920px;margin:0 auto;padding:32px 18px 64px}
+h1{font-size:1.9rem;line-height:1.25;margin:0 0 6px}
+.byline{color:var(--muted);margin:0 0 18px;font-size:.95rem}
+.lead{font-size:1.08rem}
+.callout{background:var(--warn);border-left:5px solid var(--warn-line);padding:12px 16px;border-radius:6px;margin:18px 0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 14px}
+button{font:inherit;font-size:.92rem;padding:7px 14px;border:1px solid var(--accent);background:var(--card);color:var(--accent);border-radius:6px;cursor:pointer}
+button:hover{background:var(--accent-soft)}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:12px 0}
+details>summary{cursor:pointer;list-style:none;padding:13px 16px 13px 42px;position:relative;font-weight:650}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸";position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--accent);transition:transform .15s}
+details[open]>summary::before{transform:translateY(-50%) rotate(90deg)}
+details>summary:hover{background:var(--accent-soft);border-radius:8px}
+details.sec>summary{font-size:1.2rem}
+details.sit{margin:10px 0;background:#fbfcfd}
+details.sit>summary{font-size:1.02rem}
+.body{padding:2px 18px 14px}
+.body p{margin:.55em 0}
+.body ol,.body ul{margin:.5em 0;padding-left:1.4em}
+.body li{margin:.3em 0}
+.tbl{overflow-x:auto;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+a{color:var(--accent)}
+h2.part{font-size:1.35rem;margin:30px 0 8px;padding-top:10px;border-top:2px solid var(--line)}
+.c1{background:#e6f0fb}.c2{background:#e5f5e8}.c3{background:#fdf1d9}.c4{background:#fbe8ef}.c5{background:#eee9fa}.c6{background:#e1f4f4}
+details.sec details.sit{background:#fff}
+details.sec details.sit.d1{background:#e6f0fb}details.sec details.sit.d2{background:#e5f5e8}details.sec details.sit.d3{background:#fdf1d9}details.sec details.sit.d4{background:#fbe8ef}details.sec details.sit.d5{background:#eee9fa}details.sec details.sit.d6{background:#e1f4f4}
+footer{margin-top:28px;color:var(--muted);font-size:.88rem}
+@media print{.toolbar{display:none}body{background:#fff}details{border-color:#bbb}}
+</style>
+</head>
+<body>
+<main>
+<h1>AI v škole: ai.iedu.sk, aidetem.cz a chatveskole.cz pre učiteľa</h1>
+<p class="byline">24. 11. 2026 · ZŠ s MŠ Novoť</p>
+<p class="lead">Oznam zhŕňa tri zdroje o umelej inteligencii v škole: slovenský portál ministerstva ai.iedu.sk, český web aidetem.cz a jeho slovenskú praktickú časť chatveskole.cz/sk. V časti A sú priame odkazy na metodiky, kurikulum a licencie a porovnanie, čo z toho je pre slovenského učiteľa užitočnejšie. V časti B je 15 konkrétnych situácií zo školy a v časti C modelové príklady pre každý ročník. Kliknutím na nadpis sekciu alebo situáciu rozbalíte.</p>
+
+<div class="callout"><strong>Čo platí a čo sa pripravuje:</strong> Ministerstvo školstva SR sprístupňuje učiteľom bezplatné licencie ChatGPT Edu, Microsoft 365 Copilot, Google AI Pro a Mistral na 12 mesiacov. Objednáva ich riaditeľ cez RIAM 2.0 a DigiEdu. Licencie Copilot sa školám, ktoré ich objednali, sprístupňujú po vlnách od konca novembra do začiatku decembra 2026 a prideľuje ich IT administrátor. Naša škola zatiaľ nič nedostala a máme to čoskoro očakávať. Podľa správy ministerstva z konca októbra bola kapacita Copilota a Gemini vyčerpaná, ChatGPT a Mistral sa dajú objednávať ďalej, preto sa oplatí overiť u vedenia, či je objednávka podaná. Podrobnosti sú v časti A, v sekcii „Bezplatné AI nástroje pre učiteľov“.</div>
+
+<div class="toolbar">
+<button type="button" id="openAll">Rozbaliť všetko</button>
+<button type="button" id="closeAll">Zbaliť všetko</button>
+</div>
+
+<h2 class="part">Časť A: Dva zdroje, z ktorých môže učiteľ čerpať</h2>
+<p>Rozbaľte jednu z dvoch možností. Za nimi je porovnanie, ktoré pomôže vybrať, čo použiť ako prvé.</p>
+<details class="sec c1">
+<summary>Možnosť 1: Slovenský web ai.iedu.sk (ministerstvo školstva)</summary>
+<div class="body">
+<p>Oficiálny portál ministerstva. Pre slovenského učiteľa je to východisko: je v slovenčine, nadväzuje na slovenský ŠVP a ako jediný rieši bezplatné licencie AI pre školy. Rozbaľte jednotlivé časti. Stav webu k 24. 11. 2026.</p><details class="sit d2">
+<summary>Čo je ai.iedu.sk a ako je členený</summary>
+<div class="body">
+<p>Portál „AI vo vzdelávaní“ je projekt Ministerstva školstva, výskumu, vývoja a mládeže SR. Hlavné časti sú:</p><ul>
+<li><a href="https://ai.iedu.sk/skoly-a-ucitelia/">Školy a učitelia</a>: AI gramotnosť, metodiky, podpora kompetencií učiteľov, bezpečné používanie AI.</li>
+<li><a href="https://ai.iedu.sk/nastroje-ai/">Nástroje AI</a>: bezplatné licencie pre školy, národný projekt AI pre všetkých, Sila spätnej väzby.</li>
+<li><a href="https://ai.iedu.sk/rodicia-a-ziaci/">AI pre rodičov a žiakov</a>: krátke videá, sprievodcovia a letáky.</li>
+<li><a href="https://ai.iedu.sk/aktuality/">Novinky</a> a <a href="https://ai.iedu.sk/aktuality/plan-vyuzivania-ai-vo-vzdelavani/">Plán zodpovedného využívania AI vo vzdelávaní na roky 2025 až 2027</a>.</li>
+</ul><p>Kontakt: <a href="https://ai.iedu.sk/kontakt/">kontaktný formulár</a>. Pri licenciách a RIAM 2.0 slúži <a href="mailto:helpdesk@iedu.sk">helpdesk@iedu.sk</a>. Súčasťou je aj newsletter.</p>
+</div>
+</details>
+<details class="sit d2">
+<summary>AI gramotnosť v štátnom vzdelávacom programe (ŠVP)</summary>
+<div class="body">
+<p>Toto je najdôležitejšia časť pre plánovanie hodín, lebo ide o záväzný rámec. Podľa webu sa ŠVP pre základné školy od marca 2026 rozšíril o AI gramotnosť a školy ju zahrnú do vyučovania od septembra 2026.</p><ul>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/02/Dodatok-c.-4_v1.pdf">AI gramotnosť, dodatok k ŠVP 2023 (PDF, 182 KB)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/02/Dodatok-c.17_SVP-2015_v1.pdf">AI gramotnosť, dodatok k ŠVP 2015 (PDF, 103 KB)</a></li>
+<li><a href="https://www.minedu.sk/konsolidovane-znenie-svp-2023-podla-dodatku-c-5/">Konsolidované znenie ŠVP 2023 na minedu.sk</a></li>
+<li><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Celá stránka AI gramotnosť (ciele po cykloch, gymnáziá)</a></li>
+</ul><p><strong>Ciele podľa cyklov</strong> (skrátene, text stránky):</p><ul>
+<li><strong>1. cyklus, koniec 3. ročníka:</strong> žiak rozpozná technológie s AI v bežnom živote, jednoducho opíše strojové učenie (stroje sa učia z dát a vnímajú senzormi), vie formulovať jednoduché zadanie pre chatbota pod dohľadom učiteľa, nepripisuje AI ľudské vlastnosti a váži si skutočný svet a vzťahy.</li>
+<li><strong>2. cyklus, koniec 5. ročníka:</strong> žiak vie, že AI sa učí zo vzorov v dátach a kvalita vstupov ovplyvňuje výsledok, používa generatívnu AI pod vedením učiteľa, overuje informácie z iných zdrojov, chráni súkromie a udržiava zdravú rovnováhu pri používaní technológií.</li>
+<li><strong>3. cyklus, koniec 9. ročníka:</strong> žiak rozumie princípom LLM, asistentov a agentov a vplyvu dát na zaujatosť, samostatne volí nástroj podľa úlohy, transparentne priznáva mieru využitia AI, kriticky overuje výstupy, rozpoznáva manipuláciu a analyzuje dopad AI na spoločnosť a životné prostredie.</li>
+</ul><p>Pre stredné školy web uvádza, že štátne vzdelávacie programy sa do konca roka 2026 aktualizujú. Gymnáziá majú AI gramotnosť povinne od 1. septembra 2026 (<a href="https://ai.iedu.sk/wp-content/uploads/2026/06/2026_Dodatok6_SVP_-gymnazia.pdf">dodatok pre gymnáziá, PDF</a>).</p>
+</div>
+</details>
+<details class="sit d3">
+<summary>Metodiky pre AI gramotnosť: Ju a Pí (3. až 5. ročník)</summary>
+<div class="body">
+<p>Deväť lekcií po 45 až 90 minút, ku každej je prezentácia. Žiaci nepotrebujú žiadne zariadenia, pracujú s papierom. Autor materiálu: AI deťom. Je to teda slovenská verzia toho istého materiálu, ktorý je na aidetem.cz. Vhodné napríklad pre informatiku v 3. až 5. ročníku.</p><p>Stránka: <a href="https://ai.iedu.sk/skoly-a-ucitelia/metodicky-material-ju-a-pi/">Metodický materiál Ju a Pí</a> (tam sú aj prezentácie PPTX). Priame odkazy na metodiky v PDF:</p><ul>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_01_Vnimanie-a-ucenie.pdf">01 Roboti Ju a Pí sa predstavujú (vnímanie a učenie)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_02_Co-je-a-co-nie-je-AI.pdf">02 Roboti v múzeu (čo je a čo nie je AI)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_03_Algoritmus-a-strojove-ucenie.pdf">03 Ako si roboti čistili zuby (algoritmus a strojové učenie)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_04_Data.pdf">04 Roboti s hlavou v oblakoch (dáta)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_05_Ucenie-sa-z-prikladov.pdf">05 Roboti na výstave mačiek (učenie sa z príkladov)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_06_Ucenie-sa-zo-skusenosti.pdf">06 Robotie dobrodružstvo v bludisku (učenie sa zo skúseností)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_07_Predpojatost-v-pocitacovom-videni.pdf">07 Ju a Pí na nákupe (predpojatosť v počítačovom videní)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_08_Jazykovy-model.pdf">08 Ju a Pí vo vesmíre slov (jazykový model)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_09_Ambientna-inteligencia.pdf">09 Roboti majú robopsíka (ambientná inteligencia)</a></li>
+</ul>
+</div>
+</details>
+<details class="sit d4">
+<summary>Metodiky Karty (6. až 9. ročník a stredné školy)</summary>
+<div class="body">
+<p>Osem lekcií po 45 až 90 minút v troch balíčkoch: Etika, Strojové učenie, Dáta. Kartové úlohy, modelové situácie a diskusia. Stránka: <a href="https://ai.iedu.sk/skoly-a-ucitelia/metodicky-material-karty/">Metodický materiál Karty</a>.</p><ul>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Etika_Etika-vyvoje-a-vyuziti-technologii-SK.pdf">Etika 01: Etika vývoja a využitia technológií</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Etika_Etika-v-rozhodovani-SK.pdf">Etika 02: Etika v rozhodovaní</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_01-Dataset_metodika-SK.pdf">Strojové učenie 01: Dataset</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_02-Strojove-uceni-s-ucitelem_metodika-SK.pdf">Strojové učenie 02: Strojové učenie s učiteľom</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_03-Predpojatost_metodika-SK.pdf">Strojové učenie 03: Zaujatosť</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_04-Posilovane-uceni_metodika-SK.pdf">Strojové učenie 04: Posilňované učenie</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Velka-data_01-velka-data-Big-data-SK.pdf">Dáta 01: Veľké dáta</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Velka-data_02-Int-SK.pdf">Dáta 02: Interpretácia dát pomocou četbotov</a></li>
+</ul>
+</div>
+</details>
+<details class="sit d5">
+<summary>AI kompetencie v predmetoch (21 metodík)</summary>
+<div class="body">
+<p>Metodiky AI deťom pre 3. cyklus ZŠ a stredné školy. Stránka: <a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-kompetencie-v-predmetoch/">AI kompetencie v predmetoch</a>. Pri mediálnej výchove a kyberbezpečnosti web uvádza 8. a 9. ročník (kyberbezpečnosť od 6. ročníka) a stredné školy. Pri ostatných ročník neuvádza.</p><p><strong>Digitálne kompetencie a mediálna výchova (9)</strong></p><ul>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/7_Medialna-vychova-01.pdf">01 Mediálna výchova: Odporúčacie systémy na sociálnych sieťach</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/4_Medialna-vychova-02.pdf">02 Mediálna výchova: Mikrocielenie a dark posting</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/2_Medialna-vychova-03.pdf">03 Mediálna výchova: Vplyv generatívnej AI na propagandu</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/1_Medialna-vychova-04.pdf">04 Mediálna výchova: Strojové rozpoznávanie emócií</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/8_Medialna-vychova-05.pdf">05 Mediálna výchova: Syntetická realita (deepfakes)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/9_Medialna-vychova-08_Kyberbezpecnost-I.pdf">06 Kyberbezpečnosť: Kto je Sára? (digitálna stopa a OSINT)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/10_Cetboty-vo-vyucbe_Pracovne-listy.pdf">07 Četboty vo výučbe: metodická podpora a pracovné listy</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/3_Rozvoj-myslenia-s-vyuzitim-cetbota.pdf">08 Rozvoj myslenia s využitím četbota</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/5_Analyza-textu-pomocou-generativnej-umelej-inteligencie.pdf">09 Analýza textu pomocou generatívnej umelej inteligencie</a></li>
+</ul><p><strong>Humanitné predmety (8)</strong></p><ul>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Anglictina-01-SK.pdf">Anglický jazyk: Etické a morálne dilemy</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Anglictina-02-SK-.pdf">Anglický jazyk: Vynálezcovia slov</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Slovensky-jazykLiteratura-.pdf">Slovenský jazyk a literatúra: Poézia medzi promptmi</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Dejepis-.pdf">Dejepis: Príčiny a prekážky vzniku Európskej únie</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Hudobna-vychova-01.pdf">Hudobná výchova: Zvukové premeny</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Hudobna-vychova-02.pdf">Hudobná výchova: Hudobné žánre a generovanie hudby</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Vytvarna-vychova-I.-SK.pdf">Výtvarná výchova: Bežiaci vlk</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Vytvarna-vychova-II.-SK.pdf">Výtvarná výchova: Algoritmicky neviditeľní</a></li>
+</ul><p><strong>Prírodovedné predmety a matematika (4)</strong></p><ul>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Biologia.pdf">Biológia: Rastliny okolo nás</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Chemia.pdf">Chémia: Hádaj chemické prvky!</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Geografia.pdf">Geografia: Inteligentné technológie v poľnohospodárstve</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Matematika-.pdf">Matematika: Matematika pre život</a></li>
+</ul>
+</div>
+</details>
+<details class="sit d6">
+<summary>AI a duševné zdravie: Emocionálny kompas (31 metodík od MŠ po 9. ročník)</summary>
+<div class="body">
+<p>Metodiky vytvorila organizácia Emocionálny kompas (<a href="https://emocionalnykompas.sk">emocionalnykompas.sk</a>). Rozvíjajú sociálnu, emocionálnu a AI gramotnosť, vhodné aj na triednické hodiny. Zdôrazňujú, že AI je nástroj, nie priateľ ani autorita, a kedy treba obrátiť sa na človeka. Úvodná stránka: <a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/">AI a duševné zdravie</a>.</p><ul>
+<li><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-materske-skoly/">Materské školy</a> (5 metodík, bez technológií, cez hru, pohyb a rozhovor).</li>
+<li><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Mladší žiaci, 1. až 3. ročník</a> (10 metodík): Telo ako môj radar, Chceme byť odolní, Zmyslová skúsenosť a AI, Čo už dokážeme?, Od emócií k prosbe, Čo zdieľam a čo si nechávam, Baterka pozornosti, Ako si porozumieme?, Sme v pohode?, Moji pomocníci.</li>
+<li><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Starší žiaci, 4. až 9. ročník</a> (16 metodík), medzi nimi Emoji Challenge, AI v mojom živote, Ja o päť rokov, Rozhodujem, nielen nasledujem, Ako odpovedať slušne a s hranicami, Keď AI príliš súhlasí, Bezpečnostný protokol: kedy AI nestačí?, Moja záchranná sieť.</li>
+</ul><p>Na tej istej stránke sú krátke články pre učiteľov, napríklad <a href="https://ai.iedu.sk/deepfake-a-nudify-aplikacie-v-skole-preco-deti-mlcia-a-ako-reagovat/">Deepfake a nudify aplikácie v škole</a>, <a href="https://ai.iedu.sk/pravidla-pouzivania-ai-v-skole-ako-ich-vytvorit-spolu-so-ziakmi/">Pravidlá používania AI v škole: ako ich vytvoriť spolu so žiakmi</a> a <a href="https://ai.iedu.sk/ked-ai-prilis-suhlasi-ako-ucit-ziakov-kriticky-pracovat-s-alternativnymi-pohladmi/">Keď AI príliš súhlasí</a>. Web tiež uvádza, že od roku 2026 školský zákon zaraďuje medzi ciele vzdelávania rozvoj emočnej gramotnosti a odolnosti žiakov a digitálnych kompetencií vrátane AI.</p>
+</div>
+</details>
+<details class="sit d2">
+<summary>Bezplatné AI nástroje pre učiteľov: ChatGPT Edu, Copilot, Google AI Pro, Mistral</summary>
+<div class="body">
+<p>Ministerstvo zabezpečilo učiteľom ZŠ a SŠ pokročilé verzie štyroch nástrojov. Prehľad a postup: <a href="https://ai.iedu.sk/nastroje-ai/bezplatne-nastroje-pre-skoly/">Bezplatné nástroje pre školy</a>.</p><div class="tbl"><table>
+<tr><th>Nástroj</th><th>Čo web uvádza</th><th>Počet prístupov</th></tr>
+<tr><td>ChatGPT Edu</td><td>Nápady, príprava materiálov, práca s dokumentmi, väčšie úlohy, spolupráca s kolegami.</td><td>Neobmedzený počet pre učiteľov ZŠ a SŠ (objednané 52 815).</td></tr>
+<tr><td>Microsoft 365 Copilot</td><td>Rozhovor s AI priamo vo Worde, Exceli, PowerPointe, Outlooku a Teams.</td><td>24 500 licencií, kapacita vyčerpaná.</td></tr>
+<tr><td>Google AI Pro</td><td>Rozšírený Gemini, pomoc v aplikáciách Google Workspace, Gemini Notebook.</td><td>20 000 licencií, kapacita vyčerpaná.</td></tr>
+<tr><td>Mistral AI</td><td>Európsky model, webové rozhranie Vibe na texty, súhrny, otázky a zadania.</td><td>Neobmedzený počet (objednané 50 879).</td></tr>
+</table></div><p>Údaje o objednaných počtoch sú zo správy ministerstva <a href="https://ai.iedu.sk/skoly-si-objednali-uz-takmer-150-tisic-ai-licencii-chatgpt-a-mistral-su-nadalej-dostupne/">Školy si objednali už takmer 150-tisíc AI licencií</a> a menia sa.</p><p><strong>Pravidlá objednávky:</strong></p><ul>
+<li>Objednáva riaditeľ školy. Prihlási sa účtom riaditeľa z <a href="https://riam2.iedu.sk">RIAM 2.0</a> do aplikácie <a href="https://app.digiedu.sk/login">DigiEdu</a>. Objednávku treba podať osobitne za kmeňovú aj každú podriadenú školu.</li>
+<li>Pred objednávkou treba v RIAM 2.0 aktivovať účet riaditeľa a administrátora a skontrolovať údaje o pedagogických a odborných zamestnancoch. Návod: <a href="https://riam2.iedu.sk/ai-licencie">riam2.iedu.sk/ai-licencie</a>.</li>
+<li>Každý zamestnanec môže dostať najviac tri nástroje: ChatGPT, Mistral a buď Copilot, alebo Gemini. ChatGPT a Mistral sú predvolené, výber sa dá zmeniť.</li>
+<li>Licencie platia 12 kalendárnych mesiacov od aktivácie. Formulár obsahuje záväzné podmienky o pravidlách používania, reportovaní, ochrane údajov a financovaní.</li>
+<li>Bez vyplnenej objednávky dodávatelia nemajú zoznam učiteľov a nástroje nesprístupnia.</li>
+</ul><p><strong>Copilot, stav na konci novembra 2026:</strong> ministerstvo začalo sprístupňovať licencie školám, ktoré ich objednali. Idú po vlnách koncom novembra a začiatkom decembra 2026. Ďalšie nástroje (ChatGPT Edu, Mistral a Google AI Pro) majú nasledovať. Ak škola licencie vo svojom prostredí ešte nevidí, má počkať na ďalšiu vlnu. Správa: <a href="https://ai.iedu.sk/spustame-distribuciu-bezplatnych-licencii-microsoft-365-copilot-pre-skoly/">Spúšťame distribúciu bezplatných licencií Microsoft 365 Copilot</a>.</p><p><strong>Pre IT administrátora</strong> (4 kroky v Microsoft 365 admin centre): skontrolovať licencie v Billing → Licenses, povoliť v tenante informovanie používateľov od Microsoftu, prideliť licencie učiteľom, skontrolovať nastavenia tenantu. <a href="https://ai.iedu.sk/wp-content/uploads/2026/11/Copilot_pridelenie_licencie_navod_v2.pdf">Návod na pridelenie licencie (PDF)</a>.</p><p><strong>Pre učiteľa:</strong> počkať na e-mail od Microsoftu (skontrolovať aj nevyžiadanú poštu), prihlásiť sa školským účtom a Copilot sa v aplikáciách zobrazí do 48 hodín od pridelenia. <a href="https://ai.iedu.sk/wp-content/uploads/2026/11/Copilot_navod_pre_pouzivatelov_v2.pdf">Návod pre používateľov (PDF)</a>.</p><p>Bezplatné webináre Copilot akadémia 2 (EduSteps, november a december 2026) ukazujú Copilot a nástroj Učenie na príkladoch zo školy, osobitne pre 1. stupeň a pre 2. stupeň: <a href="https://ai.iedu.sk/vyuzite-copilot-v-praxi-bezplatne-webinare-pre-ucitelov/">ponuka webinárov</a>.</p>
+</div>
+</details>
+<details class="sit d2">
+<summary>Ako používať AI v škole bezpečne (postup pre vedenie a učiteľov)</summary>
+<div class="body">
+<p>Stránka: <a href="https://ai.iedu.sk/skoly-a-ucitelia/ako-pouzivat-ai-bezpecne/">Ako používať AI v škole bezpečne</a>. Navrhuje päť krokov:</p><ol>
+<li>Zmapovať, ktoré AI nástroje už učitelia, žiaci a vedenie používajú (účel, typ údajov, kto vie používanie vysvetliť).</li>
+<li>Nastaviť školské pravidlá: kedy je AI povolená, kedy nie, ako sa pomoc AI priznáva v žiackej práci a aké údaje sa nesmú zadávať.</li>
+<li>Najprv používať AI ako podporu (príprava, spätná väzba, materiály, precvičovanie), nie na rozhodovanie o žiakovi.</li>
+<li>Učiť žiakov overovať výstupy AI.</li>
+<li>Informovať rodičov, čo je povolené a ako škola chráni údaje.</li></ol><p>Zásady, ktoré web odporúča použiť ako základ školského poriadku alebo diskusie pedagogickej rady: AI má jasný vzdelávací účel, posledné slovo má človek, nezadávať osobné, zdravotné ani rodinné údaje žiakov a priznať a overiť použitie AI. Rozlišuje sa aj miera rizika: iné pravidlá platia pre prípravu pracovného listu a iné pre nástroj, ktorý ovplyvňuje hodnotenie.</p><ul>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2025/08/UIV-A3_03.pdf">Usmernenie pre pedagógov (PDF)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2025/08/UIV-A3_09.pdf">Usmernenie pre riaditeľov (PDF)</a></li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/06/usmernenia_EK_2026.pdf">Etické usmernenia Európskej komisie (PDF, 6,3 MB)</a></li>
+</ul>
+</div>
+</details>
+<details class="sit d3">
+<summary>Rámec AI kompetencií učiteľa a ďalšie vzdelávanie</summary>
+<div class="body">
+<p>Stránka: <a href="https://ai.iedu.sk/skoly-a-ucitelia/podpora-a-rozvoj-ai-kompetencii/">Podpora a rozvoj AI kompetencií</a>. Časová os podľa webu: september 2025 Plán zodpovedného využívania AI na roky 2025 až 2027, marec 2026 Rámec AI kompetencií pedagogických a odborných zamestnancov, október 2026 premietnutie do profesijných štandardov.</p><ul>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/03/Ramec_AI_kompetencii_2026_V1.pdf">Rámec AI kompetencií (PDF, 1,6 MB)</a>: päť kompetenčných oblastí s úrovňami pokroku a indikátormi. Medzi oblasťami je ľudsky orientované myslenie a duševná pohoda, etika, právo a bezpečnosť AI a základy fungovania AI.</li>
+<li><a href="https://ai.iedu.sk/wp-content/uploads/2026/10/ProfesijneAI.zip">Profesijné štandardy (ZIP, 3,1 MB)</a></li>
+</ul><p>Web odkazuje aj na bezplatné alebo dostupné vzdelávanie: <a href="https://informatika20.sk">Informatika 2.0</a>, <a href="https://ajtyvit.sk/ucitelky-a-ucitelia/">Aj ty vieš</a>, <a href="https://www.aicko.sk">AIčko</a>, <a href="https://education.ec.europa.eu/sk/selfie-for-teachers">SELFIE for teachers</a>, <a href="https://code.org/sk/teachers">Code.org</a>, <a href="https://aislovakia.com/elementsofai/">Elements of AI</a>, <a href="https://komenskehoinstitut.sk/ai-v-sluzbach-ucitela/">Komenského inštitút: AI v službách učiteľa</a>, <a href="https://akademia.edulab.sk/courses">Edulab akadémia</a> a <a href="https://www.pdcs.sk/otvorene-kurzy/kurz/online-ako-zahrnut-umelu-inteligenciu-do-prace-so-studentmi">kurz PDCS</a>.</p>
+</div>
+</details>
+<details class="sit d4">
+<summary>Hodina umelej inteligencie a Minecraft Education</summary>
+<div class="body">
+<ul>
+<li><a href="https://ai.iedu.sk/skoly-a-ucitelia/hodina-umelej-inteligencie/">Hodina umelej inteligencie</a>: aktivity v duchu Hodiny kódu (napríklad AI pre oceány, Tanečná party: AI edícia), učiteľ nemusí byť odborník. Aktivity sú na code.org a csforall.org.</li>
+<li><a href="https://ai.iedu.sk/skoly-a-ucitelia/minecraft-education-ai/">Minecraft Education: základy AI</a>: web uvádza, že slovenské školy majú Minecraft Education bezplatne a že lekcie o AI sú v slovenčine. Napríklad Fantastické výstavy, AI pracovný veľtrh, Cloudcraft, Reed Smart: AI detektív (deepfaky).</li>
+</ul>
+</div>
+</details>
+<details class="sit d5">
+<summary>AI pre rodičov a žiakov</summary>
+<div class="body">
+<p>Stránka <a href="https://ai.iedu.sk/rodicia-a-ziaci/">AI pre rodičov a žiakov</a> ponúka sprievodcov v PDF a letáky na stiahnutie: Umelá inteligencia okolo nás, Ako sa AI učí, Prečo AI robí chyby a Ako komunikovať s AI. Hodí sa na rodičovské združenie alebo ako príloha k oznamu pre rodičov. Priamo: <a href="https://ai.iedu.sk/wp-content/uploads/2026/05/1_Rodic_sprievodca_AI_NOVE.pdf">sprievodca pre rodiča (PDF)</a>, <a href="https://ai.iedu.sk/wp-content/uploads/2026/05/3_Preco_AI_robi_chyby.pdf">Prečo AI robí chyby (PDF)</a>.</p>
+</div>
+</details>
+<details class="sit d6">
+<summary>Národný projekt AI pre všetkých a AI vouchery</summary>
+<div class="body">
+<p>Stránka: <a href="https://ai.iedu.sk/nastroje-ai/narodny-projekt-ai-pre-vsetkych/">Národný projekt AI pre všetkých</a>. Financuje ho Program Slovensko, trvá 24 mesiacov a alokácia je 3 695 053,37 EUR. Cieľ: podporiť aspoň 1 000 škôl cez AI vouchery a overiť národné rámce na aspoň 100 školách. Voucher má byť finančná podpora na oprávnené vzdelávacie AI licencie (nie na hardvér, všeobecné chatboty ani licencie financované z iných verejných zdrojov). Výzva na vouchery je podľa webu plánovaná na rok 2027. Zámer: <a href="https://ai.iedu.sk/wp-content/uploads/2026/06/Zamer_NP_UI-v-regional-skolstve.pdf">PDF</a>.</p>
+</div>
+</details>
+
+</div>
+</details>
+
+<details class="sec c2">
+<summary>Možnosť 2: Český web aidetem.cz (AI dětem, z. s.)</summary>
+<div class="body">
+<p>Nezisková organizácia, ktorá stojí aj za materiálmi, ktoré ministerstvo uverejnilo na ai.iedu.sk (Ju a Pí, Karty, AI v predmetoch). Český web je širší a obsahuje aj veci, ktoré na slovenskom portáli nie sú. Stav webu k 24. 11. 2026.</p><details class="sit d1">
+<summary>Čo je aidetem.cz a kde je čo</summary>
+<div class="body">
+<p>Nezisková organizácia AI dětem, z. s. ponúka vzdelávanie o AI pre školy, učiteľov, vedenie škôl, rodičov a deti. Materiály sú podľa úvodnej stránky zadarmo a bez registrácie. Web je česky a kurikulum odkazuje na český rámcový vzdelávací program (RVP). Hlavné vstupy:</p><ul>
+<li><a href="https://kurikulum.aidetem.cz/">AI kurikulum (kurikulum.aidetem.cz)</a>: koncepcia a metodiky pre ZŠ a SŠ.</li>
+<li><a href="https://chatveskole.cz/sk/">Chatboty ve škole (chatveskole.cz/sk)</a>: prompty, zručnosti, návody. Slovenská verzia existuje a je rozpísaná v časti B tohto oznamu.</li>
+<li><a href="https://aidetem.cz/databaze-ai-nastroju-a-aplikaci-s-navody/">Databáze AI nástrojů s návody</a></li>
+<li><a href="https://aidetem.cz/obecny-uvod-do-umele-inteligence/">Příručka Obecný úvod do umělé inteligence</a> a <a href="https://aidetem.cz/zkracena-prirucka-obecny-uvod-do-ai-pro-dospele/">zkrácená příručka</a></li>
+<li><a href="https://aidetem.cz/portfolio/pravo-legislativa-umele-inteligence/">Právní a etická stránka AI</a> (pre slovenskú školu len orientačne, vzťah k slovenskému právu overte).</li>
+<li><a href="https://aidetem.cz/slovnicek-pojmu/">Slovníček pojmů</a>, <a href="https://aidetem.cz/ke-stazeni/">Ke stažení</a>, <a href="https://aidetem.cz/publikace-a-vzdelavaci-videa/">Publikace a videa</a>.</li>
+</ul>
+</div>
+</details>
+<details class="sit d3">
+<summary>Kurikulum: koncepcia a rámec (priame odkazy)</summary>
+<div class="body">
+<p>AI kurikulum vzniklo podľa webu s podporou Nadace rodiny Tykačových v spolupráci s Národním pedagogickým institutem ČR. Pokrýva informatiku a digitálne kompetencie od 3. ročníka ZŠ po SŠ. Materiály sú pod licenciou CC BY-NC-SA 4.0 (použitie s uvedením autora, nekomerčne, zdieľať za rovnakých podmienok).</p><ul>
+<li><a href="https://kurikulum.aidetem.cz/koncepce/">O koncepcii</a></li>
+<li><a href="https://kurikulum.aidetem.cz/vizualizace-koncepce/">Vizualizácia koncepcie</a></li>
+<li><a href="https://kurikulum.aidetem.cz/kompetencni-model/">Kompetenčný model</a></li>
+<li><a href="https://kurikulum.aidetem.cz/pet-velkych-myslenek-kurikularni-ramec-pro-umelou-inteligenci/">Päť veľkých myšlienok (kurikulárny rámec pre AI)</a></li>
+<li><a href="https://kurikulum.aidetem.cz/pravidla-pro-tvorbu-metodik/">Jednotné pravidlá na tvorbu metodík</a></li>
+<li><a href="https://kurikulum.aidetem.cz/tym/">Tím a pilotné školy</a></li>
+</ul>
+</div>
+</details>
+<details class="sit d3">
+<summary>Metodiky podľa kategórií (priame odkazy na každú)</summary>
+<div class="body">
+<p>Úvodný web uvádza 43 metodických materiálov, no stránka <a href="https://kurikulum.aidetem.cz/vypis-vseho/">Soupis všech materiálů</a> ich vypisuje 49 (po odstránení troch duplicít). Nižšie je zoznam zo Soupisu. Texty sú v češtine, názvy som preložil. Jednotlivé materiály majú stránky s textom a prílohami na stiahnutie.</p><p><strong>AI v informatike na 1. stupni (Ju a Pí):</strong> <a href="https://kurikulum.aidetem.cz/ju-a-pi-metodicke-materialy-pro-informatiku-1-stupen/">prehľad kategórie</a></p><ul>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/01-roboti-se-predstavuji-vnimani-a-uceni/">01 Roboti sa predstavujú: vnímanie a učenie</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/02-roboti-v-muzeu-co-je-a-co-neni-ai/">02 Roboti v múzeu: čo je a čo nie je AI</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/03-roboti-si-cisti-zuby-algritmus-a-strojove-uceni/">03 Roboti si čistia zuby: algoritmus a strojové učenie</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/04-data-cloud-roboti-s-hlavou-v-oblacich/">04 Roboti s hlavou v oblakoch: dáta a cloud</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/05-uceni-se-z-prikladu-roboti-na-vystave-kocek/">05 Roboti na výstave mačiek: učenie sa z príkladov</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/06-roboti-dobrodruzstvi-v-muzeu-uceni-se-z-prikladu/">06 Robotie dobrodružstvo v bludisku: učenie sa zo skúseností</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/07-predpojatost-ju-a-pi-na-nakupu/">07 Ju a Pí na nákupe: predpojatosť</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/08-jazykove-modely-pi-ve-vesmiru-slov/">08 Ju a Pí vo vesmíre slov: jazykové modely</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/09-ambientni-inteligence-roboti-maji-domaci-mazlicky/">09 Roboti majú robopsíka: ambientná inteligencia</a></li>
+</ul><p><strong>AI v informatike na 2. stupni a SŠ:</strong> <a href="https://kurikulum.aidetem.cz/ai-pro-informatiku-na-2-stupni/">prehľad kategórie</a></p><ul>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/strojove-uceni-01-dataset/">Strojové učenie 01: Dataset</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/strojove-uceni-02-strojove-uceni-s-ucitelem/">Strojové učenie 02: Strojové učenie s učiteľom</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/strojove-uceni-03-predpojatost/">Strojové učenie 03: Predpojatosť</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/strojove-uceni-04-posilovane-uceni/">Strojové učenie 04: Posilňované učenie</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/william-meriwether-interaktivni-pribeh-pro-pochopeni-zakladu-strojoveho-uceni/">William a Meriwether: interaktívny príbeh na pochopenie základov strojového učenia</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/data-01-velka-data/">Dáta 01: Veľké dáta</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/data-02-vizualizace-dat-casova-rada/">Dáta 02: Interpretácia dát pomocou chatbotov</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/etika-01-etika-vyvoje-a-vyuziti-technologii/">Etika 01: Etika vývoja a využitia technológií</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/etika-02-etika-v-rozhodovani-inteligentnich-systemu/">Etika 02: Etika v rozhodovaní inteligentných systémov</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/vibecoding-01-tvorba-jednoduchych-aplikaci/">Vibecoding 01: Tvorba jednoduchých aplikácií</a></li>
+</ul><p><strong>Projekty a pracovné listy:</strong> <a href="https://kurikulum.aidetem.cz/projekty-a-pracovni-listy/">prehľad kategórie</a></p><ul>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/vytvareni-ai-asistentu-skolni-hackaton/">Vytváranie AI asistentov: školský hackathon na zlepšenie výučby</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/ai-nastroje-v-canva-krasnejsi-skola/">AI nástroje v Canve: krajšia škola</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/chatboti-ve-vyuce-pracovni-listy/">Chatboty vo výučbe, pracovné listy</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/rozvoj-mysleni-s-vyuzitim-chatbota/">Rozvoj myslenia s využitím chatbota</a></li>
+</ul><p><strong>Mediálna výchova:</strong> <a href="https://kurikulum.aidetem.cz/medialni-vychova/">prehľad kategórie</a></p><ul>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/medialni-vychova-01-doporucovaci-systemy-na-socialnich-sitich/">Mediálna výchova 01: Odporúčacie systémy na sociálnych sieťach</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/medialni-vychova-02-mikrocileni-darkposting/">Mediálna výchova 02: Mikrocielenie a dark posting</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/medialni-vychova-03-vliv-generativni-ai-na-propagandu/">Mediálna výchova 03: Vplyv generatívnej AI na propagandu</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/medialni-vychova-04-strojove-rozpoznavani-emoci/">Mediálna výchova 04: Strojové rozpoznávanie emócií</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/medialni-vychova-05-synteticka-realita/">Mediálna výchova 05: Syntetická realita</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/medialni-vychova-06-strojova-analyza-politickych-kampani/">Mediálna výchova 06: Strojová analýza vizuálov politických kampaní</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/medialni-vychova-07-zaklady-digitalni-a-medialni-gramotnosti/">Mediálna výchova 07: Základy digitálnej a mediálnej gramotnosti</a></li>
+</ul><p><strong>Wellbeing:</strong> <a href="https://kurikulum.aidetem.cz/wellbeing/">prehľad kategórie</a></p><ul>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/wellbeing-01-kdo-je-sara-digitalni-stopa-osint/">Wellbeing 01: Kto je Sára? (digitálna stopa a OSINT)</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/wellbeing-2-digitalni-blizkost/">Wellbeing 02: Digitálna blízkosť</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/wellbeing-03-deepnudes/">Wellbeing 03: Deep Nudes</a></li>
+</ul><p><strong>Humanitné predmety:</strong> <a href="https://kurikulum.aidetem.cz/humanitni-predmety/">prehľad kategórie</a></p><ul>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/anglicky-jazyk-01-digitalni-kompetence/">Angličtina 01: Etické a morálne dilemy</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/anglictina-02-vynalezci-slov/">Angličtina 02: Vynálezcovia slov</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/cesky-jazyk-01-digitalni-kompetence/">Český jazyk 01: Poézia medzi promptmi</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/dejepis-01-priciny-a-prekazky-vzniku-evropske-unie/">Dejepis 01: Príčiny a prekážky vzniku EÚ</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/hudebni-vychova-01-zvukove-promeny/">Hudobná výchova 01: Zvukové premeny</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/hudebni-vychova-02-hudebni-zanry/">Hudobná výchova 02: Hudobné žánre a generovanie hudby v Suno</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/nabozenstvi-desatero-v-kontextu-umele-inteligence/">Náboženstvo: Desatoro v kontexte umelej inteligencie</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/vytvarna-vychova-01-animace-postav/">Výtvarná výchova 01: Bežiaci vlk a kráčajúca Venuša</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/vytvarna-vychova-02-algoritmicky-neviditelni/">Výtvarná výchova 02: Algoritmicky neviditeľní</a></li>
+</ul><p><strong>Prírodovedné predmety a matematika:</strong> <a href="https://kurikulum.aidetem.cz/prirodovedne-predmety-a-matematika/">prehľad kategórie</a></p><ul>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/chemie-01-hadej-chemicke-prvky/">Chémia 01: Hádaj chemické prvky!</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/fyzika-01-model-cerna-skrinka/">Fyzika 01: Model a čierna skrinka</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/matematika-pro-zivot/">Matematika: Matematika pre život</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/prirodopis-01-rostliny-kolem-nas/">Prírodopis: Rastliny okolo nás</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/zemepis-01-chytre-technologie-v-zemedelstvi/">Zemepis 01: Inteligentné technológie v poľnohospodárstve</a></li>
+</ul><p><strong>Využitie AI v praxi pedagóga (karty):</strong> <a href="https://kurikulum.aidetem.cz/ai-v-praxi/">prehľad kategórie</a></p><ul>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/vyuziti-chatbotu-ve-formativnim-hodnoceni/">Využitie chatbotov vo formatívnom hodnotení</a></li>
+<li><a href="https://kurikulum.aidetem.cz/knowledgebase/zpusoby-vyuziti-chatbotu-ve-vyuce/">Spôsoby využitia chatbotov vo výučbe</a></li>
+</ul>
+</div>
+</details>
+<details class="sit d4">
+<summary>Webináre a ďalšie podporné materiály</summary>
+<div class="body">
+<p>Ku každej časti kurikula je bezplatný webinár (záznam na YouTube, česky). Stránka: <a href="https://kurikulum.aidetem.cz/webinare/">Webináře</a>.</p><ul>
+<li><a href="https://youtu.be/Cu0XjaiLlJ8">Koncepcia AI kurikula (úvod)</a></li>
+<li><a href="https://youtu.be/VTWewY-GJ_Q">AI v mediálnej výchove</a></li>
+<li><a href="https://youtu.be/dUbVHUUcTXo">AI v prírodovedných predmetoch a matematike</a></li>
+<li><a href="https://youtu.be/LpgLGkOyQnQ">AI v humanitných predmetoch</a></li>
+<li><a href="https://youtu.be/wUF4QtSL_QY">AI v informatike na 1. stupni ZŠ</a></li>
+<li><a href="https://youtu.be/T2RTspZuRQs">AI v informatike pre 2. stupeň ZŠ a SŠ</a></li>
+<li><a href="https://youtu.be/Zt8MM1QGLHg">Umelá inteligencia v projektovej výučbe</a></li>
+<li><a href="https://youtu.be/HXetAG0AYd4">Využitie chatbotov vo formatívnom hodnotení (praktický webinár)</a></li>
+<li><a href="https://youtu.be/ub51FmydOe8">Digitálna blízkosť: Kto je Sára</a></li>
+<li><a href="https://youtu.be/VneJVWVmjNs">Syntetická nahota: Kto je Sára</a></li>
+<li><a href="https://www.youtube.com/watch?v=Bn8fHQRKWsI">Tvorba jednoduchých aplikácií pomocou vibecodingu</a></li>
+</ul><p>Tretia vrstva pre informatiku na 2. stupni je podľa webinára projektová učebnica Strojové učení pro děti. Aplikácia Tiny (AI asistent pre učiteľa a mentor pre žiakov) je opísaná v časti B, situácia 11.</p>
+</div>
+</details>
+<details class="sit d5">
+<summary>Praktický sprievodca chatveskole.cz (15 situácií)</summary>
+<div class="body">
+<p>Ide o praktickú vrstvu aidetem.cz: hotové prompty, zručnosti a návody po slovensky. Podrobne je rozpísaná v časti B nižšie (15 situácií zo školskej praxe). Priamy vstup: <a href="https://chatveskole.cz/sk/">chatveskole.cz/sk</a>.</p>
+</div>
+</details>
+
+</div>
+</details>
+
+<details class="sec c3">
+<summary>Porovnanie oboch webov: prínos pre slovenského učiteľa</summary>
+<div class="body">
+<p>Porovnanie vychádza z toho, čo je na oboch weboch k 24. 11. 2026. Počty a obsah sa menia, preto ich pred použitím overte priamo na webe.</p><div class="tbl"><table>
+<tr><th>Hľadisko</th><th>ai.iedu.sk (SK)</th><th>aidetem.cz (CZ)</th></tr>
+<tr><td>Jazyk</td><td>Slovenčina: metodiky, prezentácie aj návody.</td><td>Čeština. Ku kurikulu nie je slovenská verzia (stránka uvádza len anglickú). Slovenskú verziu má chatveskole.cz/sk.</td></tr>
+<tr><td>Kto za tým stojí</td><td>Ministerstvo školstva SR, projekt financovaný aj z Programu Slovensko.</td><td>Nezisková organizácia AI dětem, kurikulum podporila Nadace rodiny Tykačových s Národním pedagogickým institutem ČR.</td></tr>
+<tr><td>Súlad so slovenským ŠVP</td><td>Priamy: dodatky k ŠVP 2023 a 2015 s cieľmi po cykloch.</td><td>Nie, odkazuje na český RVP. Obsah treba k slovenským výstupom priradiť sám.</td></tr>
+<tr><td>Hotové metodiky</td><td>69: 38 od AI deťom (Ju a Pí 9, Karty 8, predmety 21) a 31 od Emocionálneho kompasu (MŠ, 1.–3. a 4.–9. ročník).</td><td>49 položiek v Soupise (úvod uvádza 43). Navyše napríklad William a Meriwether, Vibecoding, Canva, hackathon, fyzika, náboženstvo, rozšírená mediálna výchova a wellbeing.</td></tr>
+<tr><td>Predmety</td><td>Slovenský jazyk a literatúra je prispôsobený (Poézia medzi promptmi). Chýba fyzika a náboženstvo.</td><td>Český jazyk namiesto slovenčiny. Je tu fyzika aj náboženstvo.</td></tr>
+<tr><td>Licencie na AI nástroje</td><td>Áno: ChatGPT Edu, Copilot, Google AI Pro, Mistral na 12 mesiacov, objednáva riaditeľ.</td><td>Nie. Návody a databáza nástrojov, aplikácia Tiny.</td></tr>
+<tr><td>Prompty a zručnosti pre každodennú prácu</td><td>Nie sú.</td><td>Áno, chatveskole.cz/sk: 41 promptov, sady zručností, 10 spôsobov využitia AI.</td></tr>
+<tr><td>Bezpečnosť, pravidlá a vedenie školy</td><td>Postup pre školu, usmernenia pre pedagógov a riaditeľov, rámec kompetencií učiteľa, profesijné štandardy.</td><td>Vekové limity a legislatíva na chatveskole.cz, české právne texty. Slovenské právne odkazy overte samostatne.</td></tr>
+<tr><td>Rodičia a žiaci</td><td>Samostatná sekcia: sprievodcovia, letáky, videá.</td><td>Publikácie a videá, príručka Obecný úvod do AI.</td></tr>
+<tr><td>Licencia materiálov</td><td>Licenciu som na prečítaných stránkach nenašiel. Materiály sú na voľné stiahnutie.</td><td>CC BY-NC-SA 4.0 pri kurikule.</td></tr>
+<tr><td>Webináre a školenia</td><td>Copilot akadémia 2 (EduSteps) a odkazy na kurzy slovenských organizácií.</td><td>11 rôznych záznamov webinárov k častiam kurikula (česky).</td></tr>
+<tr><td>Stav a aktuálnosť</td><td>Priebežne dopĺňané, správy o licenciách z októbra a novembra 2026.</td><td>Súpis má duplicity a rozdiel 43 verzus 49, časť stránok bez uvedeného ročníka.</td></tr>
+</table></div><p><strong>Najdôležitejšie zistenie:</strong> časť materiálov je rovnaká. Ju a Pí, Karty a metodiky AI v predmetoch na ai.iedu.sk sú slovenské verzie materiálov AI deťom (web to uvádza pri autorovi). Nie je preto potrebné preberať ich z aidetem.cz v češtine.</p><p><strong>Záver pre slovenského učiteľa:</strong></p><ul>
+<li><strong>Začnite na ai.iedu.sk.</strong> Je po slovensky, nadväzuje na ŠVP s povinnou AI gramotnosťou od septembra 2026 a ako jediný rieši licencie, ktoré škola môže dostať zadarmo. Metodiky Ju a Pí (3. až 5. ročník) sa dajú použiť hneď.</li>
+<li><strong>Aidetem.cz berte ako doplnok.</strong> Oplatí sa kvôli veciam, ktoré slovenský portál nemá: prompty a zručnosti na chatveskole.cz/sk, projektové metodiky (hackathon, Canva, vibecoding), formatívne hodnotenie s chatbotmi, fyzika a náboženstvo, interaktívny príbeh William a Meriwether a záznamy webinárov.</li>
+<li><strong>Pri českých materiáloch rátajte s prácou navyše:</strong> je to čeština, odkazy na český RVP a české právne texty. Texty pre žiakov bude treba preložiť alebo upraviť.</li>
+<li><strong>Emocionálny kompas</strong> (len ai.iedu.sk): v tomto porovnaní jediný zdroj metodík pre MŠ a 1. až 3. ročník s témou AI a emócií, vhodný na triednické hodiny.</li>
+</ul>
+</div>
+</details>
+
+<h2 class="part">Časť B: Praktický návod na chatveskole.cz (15 situácií)</h2>
+<p>Táto časť sa venuje webu chatveskole.cz/sk, ktorý je súčasťou aidetem.cz. Je v slovenčine a ukazuje, ako ho použiť pri bežných situáciách z práce učiteľa.</p>
+
+<details class="sec c4">
+<summary>Čo je chatveskole.cz</summary>
+<div class="body">
+<p>Web prevádzkuje nezisková organizácia AI dětem, z. s. Je v češtine aj v slovenčine a slúži ako praktický sprievodca pre učiteľov a vedenie škôl. Funkcie chatbotov sa menia skoro každý mesiac, preto web pri väčšine stránok uvádza, ku ktorému dňu sú údaje aktuálne.</p>
+<div class="tbl"><table>
+<tr><th>Sekcia</th><th>Čo v nej nájdete</th><th>Odkaz</th></tr>
+<tr><td>Začíname</td><td>Ako pracovať s chatbotmi, prehľad nástrojov, ceny, registrácia, vekové limity a legislatíva</td><td><a href="https://chatveskole.cz/sk/zaciname/jak-pracovat-s-chatboty">chatveskole.cz/sk/zaciname</a></td></tr>
+<tr><td>Prompty</td><td>41 hotových promptov v 6 kategóriách: 22 pre učiteľov, 9 pre vedenie, 10 pre žiakov</td><td><a href="https://chatveskole.cz/sk/prompty">katalóg promptov</a></td></tr>
+<tr><td>Zručnosti a sady</td><td>Nainštalujete raz, potom ich vyvoláte zavináčom alebo lomkou. Sady: Príprava vyučovania (7), Komunikácia a podpora učiteľa (4), Formatívne hodnotenie (5), Vedenie školy (8)</td><td><a href="https://chatveskole.cz/sk/skills">katalóg zručností</a></td></tr>
+<tr><td>Projekty a konektory</td><td>Priečinok s vlastným kontextom a prepojenie chatbota na Disk, e-mail či kalendár</td><td><a href="https://chatveskole.cz/sk/funkce/projekty">projekty</a></td></tr>
+<tr><td>Vibe Coding</td><td>Tvorba malých aplikácií, hier a pomôcok opisom v bežnej reči, bez programovania</td><td><a href="https://chatveskole.cz/sk/vibe-coding/co-je-to">vibe coding</a></td></tr>
+<tr><td>Chatboty vo vyučovaní</td><td>Desať spôsobov využitia AI na hodine, aplikácia Tiny, metodiky, tvorba školských pravidiel</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">vo vyučovaní</a></td></tr>
+<tr><td>Zmeny 2026</td><td>Aktuálny prehľad, čo sa v ktorom chatbote zmenilo alebo skončilo</td><td><a href="https://chatveskole.cz/sk/funkce/zmeny-2026">zmeny vo funkciách</a></td></tr>
+</table></div>
+</div>
+</details>
+
+<details class="sec c5">
+<summary>Päť pravidiel pred prvým použitím</summary>
+<div class="body">
+<ol>
+<li><strong>Žiadne osobné údaje žiakov.</strong> Web výslovne odporúča nevkladať mená, známky ani diagnózy. Píšte iniciály alebo prezývky. Na fotografii práce žiaka najprv zakryte meno.</li>
+<li><strong>Pracujte zo školského účtu, ak ho máte.</strong> Gemini v Google Workspace for Education a Copilot Chat v Microsoft 365 (licencia A1, A3 alebo A5) sú pre učiteľov bezplatné a dáta sa podľa webu nepoužívajú na tréning. Oba musí zapnúť správca. U nás treba overiť, či sú zapnuté.</li>
+<li><strong>Pri osobnom účte vypnite tréning</strong> na vašich konverzáciách v nastaveniach.</li>
+<li><strong>Skontrolujte vek.</strong> Pri väčšine nástrojov je hranica 13 rokov, pri Claude 18 rokov. Žiaci pod hranicou nemajú pracovať s chatbotom sami (pozri situáciu 11).</li>
+<li><strong>Výstup vždy prečítajte.</strong> Chatbot robí vecné chyby, najmä v matematike a pri letopočtoch. Konečné hodnotenie žiaka patrí učiteľovi, nie chatbotu.</li>
+</ol>
+</div>
+</details>
+
+<details class="sec c6">
+<summary>Ktorý nástroj použiť</summary>
+<div class="body">
+<p>Web odporúča začať bezplatnými verziami. Ceny sú orientačné, stav k 23. 11. 2026.</p>
+<div class="tbl"><table>
+<tr><th>Nástroj</th><th>Pre učiteľa</th><th>Pre žiakov</th><th>Cena</th></tr>
+<tr><td>Gemini (Google)</td><td>Najlepšia voľba, ak škola používa Google Workspace. Zapína správca.</td><td>Školský účet bez vekovej hranice, správca obmedzí niektoré funkcie do 18 rokov. Osobný účet od 13 rokov.</td><td>Zadarmo. AI Plus 4,99 € mesačne.</td></tr>
+<tr><td>Copilot (Microsoft)</td><td>Copilot Chat zadarmo pri licencii Microsoft 365 A1, A3, A5. Zručnosti fungujú aj bez platenej licencie.</td><td>Od 13 rokov v školskom účte.</td><td>Zadarmo. Personal 10 € mesačne.</td></tr>
+<tr><td>ChatGPT (OpenAI)</td><td>Vo vlastnom účte. Školskú verziu pre ZŠ a SŠ na Slovensku nemá.</td><td>Od 13 rokov so súhlasom zákonného zástupcu. Menej vhodný.</td><td>Zadarmo (s reklamami). Plus 20 $ mesačne.</td></tr>
+<tr><td>Claude (Anthropic)</td><td>Vhodný pre učiteľov a vedenie, zručnosti aj vo verzii zadarmo.</td><td>Nie, len 18+.</td><td>Zadarmo. Pro 20 $ mesačne.</td></tr>
+<tr><td>Tiny (AI dětem)</td><td>Vidíte všetky konverzácie žiakov.</td><td>Od 13 rokov, 11 až 12 rokov so súhlasom zákonného zástupcu.</td><td>Zadarmo.</td></tr>
+</table></div>
+</div>
+</details>
+
+<details class="sec c1">
+<summary>Príprava hodín a materiálov (situácie 1 až 3)</summary>
+<div class="body">
+
+<details class="sit d6">
+<summary>1. Zajtra potrebujem kvíz alebo pracovný list</summary>
+<div class="body">
+<p><strong>Kde:</strong> <a href="https://chatveskole.cz/sk/prompty">Prompty</a> → Tvorba materiálov na vyučovanie. Nájdete tam <a href="https://chatveskole.cz/sk/funkce/prompty/kviz">Kvíz</a>, Doplňovačku, Spájačku, Pracovný list s otvorenými otázkami, Slovníček pojmov a Vyučovanie s emotikonmi.</p>
+<p><strong>Ako:</strong> Otvorte prompt Kvíz, skopírujte ho do chatbota a doplňte predmet, tému, ročník, čo má kvíz overiť, typ otázok, počet, jazyk a použitie. Príklad: prírodoveda, 4. ročník, rastliny, 10 otázok, rozcvička na začiatku hodiny. Ak niečo z toho chýba, chatbot sa najprv opýta.</p>
+<p><strong>Čo dostanete:</strong> tri časti. Kvíz pre žiakov s riadkom na meno, kľúč so stručným vysvetlením a poznámkou, čo každá chybná možnosť prezradí o chybe žiaka, a tabuľku pre učiteľa. Zhruba polovica otázok overuje zapamätanie a porozumenie, druhá polovica analýzu a aplikáciu. Na požiadanie pripraví aj verziu pre Google Forms alebo ľahší či ťažší variant.</p>
+<p><strong>Pozor:</strong> Fakty a správne odpovede si prejdite pred rozdaním. Ak takéto veci robíte často, nainštalujte si zručnosť Pracovné listy (<a href="https://chatveskole.cz/sk/sady/priprava-vyuky">sada Príprava vyučovania</a>), ktorá vydá žiacku verziu zvlášť od verzie s riešeniami.</p>
+</div>
+</details>
+
+<details class="sit d2">
+<summary>2. V triede mám žiakov na rozdielnej úrovni</summary>
+<div class="body">
+<p><strong>Kde:</strong> <a href="https://chatveskole.cz/sk/funkce/prompty/prevod-materialu-na-jinou-uroven-obtiznosti">Prevod materiálu na inú úroveň náročnosti</a> (kategória Aktualizácia materiálov), alebo zručnosť Úprava materiálu.</p>
+<p><strong>Ako:</strong> Vložte vlastný text alebo pracovný list a uveďte ročník, predmet, čo chcete (zjednodušiť, prehĺbiť, alebo tri verzie naraz), pre koho je materiál (žiaci s ťažkosťami pri dlhšom texte, žiaci s iným materinským jazykom, rýchlejší žiaci), cieľ, ktorý má zostať zachovaný, a rozsah (napríklad jedna strana A4 alebo 15 minút).</p>
+<p><strong>Čo dostanete:</strong> upravený materiál pre každú verziu zvlášť, tabuľku zmien a 2 až 3 poznámky, ako verzie nasadiť tak, aby celá trieda mierila k rovnakému cieľu. Zmeny sú vyznačené tučným písmom, verzie majú neutrálne názvy („verzia A“, „s oporou“), takže žiak nevidí, že dostal ľahšiu. Pri žiakoch s iným materinským jazykom prompt píše jednoduchou slovenčinou, jedna informácia v jednej vete, kľúčové pojmy zvýraznené. Na konci vie vydať čistú verziu na tlač bez vyznačených zmien.</p>
+<p><strong>Pozor:</strong> Nepíšte diagnózy ani mená. Stačí „žiak s ťažkosťami pri dlhšom texte“. Ak je v origináli vecná chyba, prompt na ňu upozorní.</p>
+</div>
+</details>
+
+<details class="sit d2">
+<summary>3. Potrebujem aktualizovať tematický plán alebo si zriadiť stály kontext</summary>
+<div class="body">
+<p><strong>Kde:</strong> prompt <a href="https://chatveskole.cz/sk/funkce/prompty/aktualizace-tematickeho-planu">Aktualizácia tematického plánu</a> a stránka <a href="https://chatveskole.cz/sk/funkce/projekty">Projekty</a>.</p>
+<p><strong>Ako:</strong> V chatbote si založte projekt pomenovaný podľa účelu, napríklad „Dejepis 8. B“. Do pokynov napíšte, pre koho materiály pripravujete, podľa akého ŠkVP a akým štýlom. Nahrajte tematický plán, hodnotiace kritériá, školské pravidlá, modelové testy. Každá ďalšia konverzácia v projekte už túto časť pozná. Web uvádza ďalšie príklady: slovná zásoba z anglického jazyka nahratá ako .csv a z nej cvičenia a testy, alebo modelové testy a kritériá, z ktorých chatbot vytvorí nové úlohy.</p>
+<p><strong>Pozor:</strong> Najlepšie fungujú súbory .txt, .md a .csv. PDF s tabuľkami často chatbot číta zle, požiadajte ho o prevod do Markdownu. Nenahrávajte osobné údaje žiakov ani skeny platených učebníc. V zdieľanom projekte vidia všetci členovia všetky konverzácie, vhodný je preto len pre malý tím. V Gemini sa projekty volajú Notebooky, v Copilote Notebooks.</p>
+</div>
+</details>
+
+</div>
+</details>
+
+<details class="sec c2">
+<summary>Hodnotenie a spätná väzba (situácie 4 a 5)</summary>
+<div class="body">
+
+<details class="sit d3">
+<summary>4. Pred novým celkom si chcem ujasniť cieľ a kritériá</summary>
+<div class="body">
+<p><strong>Kde:</strong> kategória Podpora formatívneho prístupu v <a href="https://chatveskole.cz/sk/prompty">katalógu promptov</a>: Formulácia vyučovacieho cieľa, Tvorba kritérií hodnotenia, Tvorba dôkazov o učení, Individualizácia vyučovacích cieľov, Sebahodnotenie pre žiakov, Tvorba výstupných a sebahodnotiacich lístkov. Pre opakované použitie je tu <a href="https://chatveskole.cz/sk/sady/formativni-hodnoceni">sada Formatívne hodnotenie</a> s piatimi zručnosťami.</p>
+<p><strong>Ako:</strong> Postupujte po krokoch. Zručnosť Vzdelávacie ciele sformuluje cieľ podľa Novej taxonómie (Marzano a Kendall) aj s kontextom učenia a kritériom splnenia. Z neho zručnosť Kritériá hodnotenia vytvorí kritériá pre vás aj pre žiakov, vrátane úprav pre žiakov so špeciálnymi výchovno-vzdelávacími potrebami. Tretia zručnosť k nim pridá stupnicu J–Č–T–Ú (ešte nie, čiastočne, takmer, úplne) a sebahodnotiaci list „Ako sa mi darilo?“. Na konci hodiny môžete použiť výstupný lístok z promptu Tvorba výstupných a sebahodnotiacich lístkov.</p>
+<p><strong>Pozor:</strong> Metodika k sade je v češtine a vychádza z českého projektu Vysvědčení JINAK (<a href="https://kurikulum.aidetem.cz/knowledgebase/vyuziti-chatbotu-ve-formativnim-hodnoceni/">metodika</a>). Ciele a kritériá vždy upravte podľa nášho ŠkVP.</p>
+</div>
+</details>
+
+<details class="sit d4">
+<summary>5. Píšem spätnú väzbu k prácam alebo slovné hodnotenie</summary>
+<div class="body">
+<p><strong>Kde:</strong> prompt <a href="https://chatveskole.cz/sk/funkce/prompty/tvorba-zpetne-vazby">Tvorba spätnej väzby</a>. Na slovné hodnotenie na vysvedčení je určená zručnosť Slovné hodnotenie, ktorá zhrnie aj predchádzajúce hodnotenia. Hotový text môžete nechať skontrolovať zručnosťou Radca pre formulácie slovného hodnotenia.</p>
+<p><strong>Ako:</strong> Do promptu vložte prácu žiaka (text alebo fotografiu s prekrytým menom), kritériá hodnotenia, ročník, predmet a tému. Prompt napíše odsek priamo žiakovi: čo sa podarilo s konkrétnym príkladom z práce, najviac dve veci na zlepšenie viazané na kritérium a jeden ďalší krok. Opisuje prácu, nie žiaka, nič neporovnáva so spolužiakmi a používa slová ako „zatiaľ“ alebo „nabudúce skús“. Dĺžka je 3 až 6 viet, v nižších ročníkoch najviac 4 krátke vety. Vám dá navyše návrh úrovne pri každom kritériu so zdôvodnením a zoznam vecí na overenie. Pri viacerých prácach naraz urobí aj súhrn 2 až 3 bodov, ktoré sa oplatí prebrať s celou triedou.</p>
+<p><strong>Pozor:</strong> Radca text neprepisuje, len vysvetľuje, ako formulovať. Web pripomína, že konečné hodnotenie je vždy na učiteľovi. Výskum, ktorý web cituje, zistil, že AI spätná väzba pri esejach nedosiahla kvalitu skúsených hodnotiteľov.</p>
+</div>
+</details>
+
+</div>
+</details>
+
+<details class="sec c3">
+<summary>Komunikácia s rodičmi (situácie 6 až 8)</summary>
+<div class="body">
+<p>Kategória Komunikácia so zákonnými zástupcami má v katalógu päť promptov. Tri z nich sa v praxi použijú najčastejšie.</p>
+
+<details class="sit d5">
+<summary>6. Rodič chce vedieť, ako sa jeho dieťaťu darí</summary>
+<div class="body">
+<p><strong>Kde:</strong> prompt <a href="https://chatveskole.cz/sk/funkce/prompty/zprava-o-pokroku-zaka">Správa o pokroku žiaka</a>. Nie je určený na slovné hodnotenie na vysvedčení, na to slúži zručnosť zo situácie 5.</p>
+<p><strong>Ako:</strong> Doplňte iniciály žiaka (nikdy celé meno), pohlavie, ročník, obdobie, vlastné poznámky ako text alebo fotografiu a účel správy. Voliteľne pridajte kroky, ktorými môže pomôcť rodina. Prompt vychádza iba z vašich poznámok: ak niečo chýba, označí to ako [doplniť] a nedomýšľa si. Nepíše o osobnosti dieťaťa, ale o správaní a práci, neporovnáva so spolužiakmi a nespomína diagnózy ani rodinné okolnosti.</p>
+<p><strong>Čo dostanete:</strong> jeden súvislý odsek s 5 až 8 vetami: silné stránky, najviac dve oblasti na ďalšiu prácu a spôsoby spolupráce školy a rodiny. Pod ním zoznam vecí na overenie. Na požiadanie kratšiu verziu, body na konzultáciu alebo text pre samotného žiaka. Meno dieťaťa doplňte sami na miesto značky [meno žiaka], napríklad priamo v Edupage.</p>
+</div>
+</details>
+
+<details class="sit d6">
+<summary>7. Rodič mi napísal ostrú správu</summary>
+<div class="body">
+<p><strong>Kde:</strong> prompt <a href="https://chatveskole.cz/sk/funkce/prompty/reakce-na-stiznost-rodice">Reakcia na sťažnosť zákonného zástupcu</a>.</p>
+<p><strong>Ako:</strong> Vložte text správy (mená nahraďte iniciálami), svoj pohľad na situáciu bez hodnotenia dieťaťa, čo ste už urobili, cieľ odpovede (vysvetlenie a ponuka stretnutia, alebo zdvorilé odmietnutie požiadavky) a kanál. Odpoveď má najviac 150 slov, bez obhajovania, irónie a moralizovania, nič nesľubuje a neuznáva vinu, ktorú nevidíte.</p>
+<p><strong>Čo dostanete:</strong> odpoveď v piatich častiach (poďakovanie a pochopenie, vecné vysvetlenie, uznanie oprávnenej časti sťažnosti s návrhom riešenia, ďalší krok, partnerské zakončenie) a 2 až 3 veci na overenie pred odoslaním.</p>
+<p><strong>Pozor:</strong> Ak sťažnosť mieri na kolegu alebo vedenie, alebo hrozí právny spor, chatbot odporučí odovzdať ju riaditeľovi. Ak opis naznačuje šikanovanie alebo ohrozenie dieťaťa, odpoveď nepíše a navrhne, koho v škole zapojiť ako prvého. Pri vyhrotenej situácii je podľa webu lepšie najprv zavolať alebo ponúknuť stretnutie a e-mail použiť len ako potvrdenie.</p>
+</div>
+</details>
+
+<details class="sit d1">
+<summary>8. Organizujem exkurziu, akadémiu alebo iné podujatie</summary>
+<div class="body">
+<p><strong>Kde:</strong> prompt <a href="https://chatveskole.cz/sk/funkce/prompty/pozvanka-na-skolni-akci">Pozvánka na školské podujatie</a>.</p>
+<p><strong>Ako:</strong> Jedným zadaním dostanete texty pre všetky kanály naraz s rovnakým dátumom, časom a miestom: e-mail so sľúbeným predmetom, plagát s krátkymi riadkami, príspevok na sociálne siete, dlhší text do školského newslettera a krátku správu na web. Doplníte názov, dátum, čas, miesto, program, cieľovú skupinu, čo si priniesť, cenu, prihlásenie, kontakt a kanály, ktoré naozaj použijete. Prompt si nevymýšľa program, ceny ani deň v týždni, chýbajúce údaje nechá v hranatých zátvorkách.</p>
+<p><strong>Pozor:</strong> Pred zverejnením porovnajte dátum, čas a miesto vo všetkých verziách a skontrolujte, či v texte pre sociálne siete a web nie sú mená detí. Pre ostatné situácie s rodičmi sú v kategórii ešte prompty Informácia o školskom projekte a Vysvetlenie významu využitia generatívnej AI vo vyučovaní.</p>
+</div>
+</details>
+
+</div>
+</details>
+
+<details class="sec c4">
+<summary>Práca so žiakmi na hodine (situácie 9 až 12)</summary>
+<div class="body">
+
+<details class="sit d2">
+<summary>9. Žiaci sa majú pripraviť na písomku (aplikácia Tiny)</summary>
+<div class="body">
+<p><strong>Kde:</strong> <a href="https://chatveskole.cz/sk/ve-vyuce/tiny">Tiny</a> je bezplatná aplikácia s jedenástimi chatbotmi (Tinybotmi). Na opakovanie slúžia Opakovací parťák a Testovací chatbot.</p>
+<p><strong>Ako:</strong> Na teacher.tiny.school vyberiete Tinybota a zadáte tému. Žiaci otvoria student.tiny.school, zadajú kód hodiny a každý vedie vlastný rozhovor. Chatbot kladie otázky od jednoduchších k náročnejším a pri chybe sa vráti o krok späť a napovie. Web uvádza príklad: opakovanie slovných druhov pred písomkou. Počas hodiny vidíte všetky konverzácie, Tiny upozorní na problematické situácie a na konci hodiny dostanete zhrnutie. Pred prvou hodinou si prečítajte metodiku <a href="https://www.tiny.school/sk/ako-zacat-s-tinybotmi/">Ako začať s Tinybotmi</a>.</p>
+<p><strong>Pozor:</strong> Tiny je pre žiakov od 11 rokov. Žiaci vo veku 11 až 12 rokov potrebujú súhlas zákonného zástupcu, ktorý zabezpečí učiteľ podľa šablóny v podmienkach Tiny. Pre mladších je aplikácia nevhodná. Prihlásenie je cez školský účet Office 365 alebo Google. Dáta sú na serveroch v EÚ, rozhovory sa pred odoslaním jazykovému modelu anonymizujú, nepoužívajú sa na tréning a po skončení spolupráce sa do 30 dní zmažú.</p>
+</div>
+</details>
+
+<details class="sit d3">
+<summary>10. Žiaci majú premýšľať, nie kopírovať</summary>
+<div class="body">
+<p><strong>Kde:</strong> stránka <a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">Desať spôsobov využitia AI vo vyučovaní</a> a rovnomenné prompty pre žiakov (10 promptov, ktoré vznikli s Národným pedagogickým inštitútom ČR). Web ich určuje pre 2. stupeň ZŠ a SŠ, každá aktivita trvá 5 až 15 minút a má nadväzovať na výklad alebo prácu s textom.</p>
+<div class="tbl"><table>
+<tr><th>Spôsob</th><th>Čo robí žiak</th><th>Príklad z webu</th><th>Tinybot</th></tr>
+<tr><td>Opakovanie</td><td>Odpovedá na otázky so stupňujúcou náročnosťou</td><td>Slovné druhy pred písomkou</td><td>Opakovací parťák</td></tr>
+<tr><td>Spoločné objavovanie</td><td>Hľadá súvislosti a formuluje ich vlastnými slovami</td><td>Prečo sa striedajú ročné obdobia</td><td>Spoločné objavovanie</td></tr>
+<tr><td>Vysvetľovanie</td><td>Vysvetľuje tému chatbotovi, ktorý „nerozumie“</td><td>Fotosyntéza pre niekoho, kto nevidel rastlinu</td><td>Zvedavý mimoň</td></tr>
+<tr><td>Rozhovor v roli</td><td>Pripraví otázky pre postavu a porovná odpovede s učebnicou</td><td>Rozhovor s Máriou Teréziou o školskej reforme</td><td>Historická postava / Expert</td></tr>
+<tr><td>Čo keby</td><td>Domýšľa dôsledky zmeny</td><td>Čo keby zemská os nebola naklonená</td><td>Čo keby…</td></tr>
+<tr><td>Argumentácia</td><td>Obháji stanovisko a reaguje na protiargumenty</td><td>Má byť mobil cez prestávky zakázaný?</td><td>Argumentačný partner</td></tr>
+<tr><td>Hľadanie chýb</td><td>Kontroluje text so zámerne vloženými chybami</td><td>Odsek o slnečnej sústave s tromi chybami</td><td>Chybujúci chatbot</td></tr>
+<tr><td>Brainstorming</td><td>Najprv píše vlastné nápady, potom ich s AI rozširuje</td><td>Námety na triedny projekt k Dňu Zeme</td><td>Parťák na brainstorming</td></tr>
+<tr><td>Plánovanie</td><td>Rozvrhne prácu na kroky a odhadne čas</td><td>Osnova referátu</td><td>Chatbot na plánovanie</td></tr>
+<tr><td>Spätná väzba</td><td>Porovná svoje hodnotenie s hodnotením AI</td><td>Rozpracovaná úvaha podľa kritérií zo slohu</td><td>bez Tinybota</td></tr>
+</table></div>
+<p><strong>Pravidlá:</strong> Žiak píše najprv sám, AI použije až potom. Na konci aktivity položte jednu či dve otázky: pomohla AI porozumieť, alebo len rýchlejšie dokončiť úlohu? Ak cieľ hodiny stojí na zručnosti, ktorú by chatbot prevzal, AI nepoužite. Web cituje výskumy: všeobecné chatboty zvyšovali výkon počas cvičenia, ale v skúške bez AI boli žiaci horší; lepšie dopadli chatboty, ktoré dali nápovedu namiesto riešenia.</p>
+</div>
+</details>
+
+<details class="sit d5">
+<summary>11. Môj žiak je pod vekovou hranicou nástroja</summary>
+<div class="body">
+<p><strong>Kde:</strong> <a href="https://chatveskole.cz/sk/zaciname/vekove-limity-a-legislativa">Vekové limity a legislatíva</a>, odporúčanie č. 2.</p>
+<p><strong>Ako:</strong> Web radí pracovať spoločne: učiteľ ovláda aplikáciu na projektore, žiaci kladú otázky a hodnotia odpovede. Konkrétne aktivity pre 1. stupeň web neuvádza, tu je moja adaptácia: požiadate chatbota o krátky text o slnečnej sústave s tromi zámernými chybami, premietnete ho a trieda chyby hľadá a zdôvodňuje (spôsob „Hľadanie chýb“). Žiaci nepíšu do nástroja sami a váš účet je školský.</p>
+<p><strong>Pozor:</strong> Do chatbota nepíšte mená žiakov ani známky. Spoločne overujte odpovede, lebo AI robí chyby, a považujte to za súčasť aktivity.</p>
+</div>
+</details>
+
+<details class="sit d5">
+<summary>12. Potrebujem pomôcku na mieru (vibe coding)</summary>
+<div class="body">
+<p><strong>Kde:</strong> <a href="https://chatveskole.cz/sk/vibe-coding/co-je-to">Vibe Coding</a> a <a href="https://chatveskole.cz/sk/vibe-coding/materialy-do-vyuky">Materiály na vyučovanie</a>. Aplikáciu opisujete bežnou rečou a chatbot ju vytvorí, napríklad v Gemini (Canvas) alebo Claude (artefakty).</p>
+<p><strong>Príklady z webu:</strong> generovanie príkladov, ktoré sa pri každom spustení zmenia (mocniny, prevody jednotiek, slovné úlohy); pexeso a pamäťová hra; simulácia, pri ktorej žiak posunie jazdca a mení sa graf; losovanie skupín alebo otázok; časomiera na prácu v skupinách. Hotových osem zadaní nájdete na stránke materiálov: interaktívna časová os prezidentov SR, graf obyvateľov krajov SR, myšlienková mapa drevín, hra Vlk, koza a kapusta, vlastná SVG ikona alebo 3D model pre tlač.</p>
+<p><strong>Pozor:</strong> Kto má zdieľaný odkaz, aplikáciu otvorí a u niektorých nástrojov môže meniť aj uložené údaje. Neukladajte tam mená, známky ani kontakty. Aplikáciu vždy vyskúšajte pred použitím so žiakmi, vstupné údaje (napríklad počet obyvateľov) vložte z overeného zdroja a nenechajte ich generovať chatbotom.</p>
+</div>
+</details>
+
+</div>
+</details>
+
+<details class="sec c5">
+<summary>Náročné situácie, pravidlá školy a vedenie (situácie 13 až 15)</summary>
+<div class="body">
+
+<details class="sit d6">
+<summary>13. Neviem si rady so situáciou v triede</summary>
+<div class="body">
+<p><strong>Kde:</strong> <a href="https://chatveskole.cz/sk/sady/komunikace-a-podpora-ucitele">sada Komunikácia a podpora učiteľa</a>, zručnosti Mentor pre pedagógov a Lepšia triedna klíma.</p>
+<p><strong>Ako:</strong> Mentor pracuje ako empatický sprievodca: pomôže situáciu pochopiť, nájsť praktické kroky a zamyslieť sa nad vlastným prístupom. Lepšia triedna klíma urobí rozbor situácie a plán intervencie. Opíšte situáciu niekoľkými vetami bez mien, napríklad: „Pri skupinovej práci dvaja žiaci opakovane rušia ostatných a skupina sa nedostane k výsledku.“ Vstupy a výstupy webu pri týchto zručnostiach podrobne neopisuje, ide teda o odhad z ich popisu.</p>
+<p><strong>Pozor:</strong> Pri podozrení na šikanovanie alebo ohrozenie dieťaťa sa neporadte s chatbotom, ale s vedením školy. Tak to robí aj prompt na sťažnosti z situácie 7.</p>
+</div>
+</details>
+
+<details class="sit d1">
+<summary>14. Chceme na škole dohodnúť pravidlá pre AI a domáce úlohy</summary>
+<div class="body">
+<p><strong>Kde:</strong> <a href="https://chatveskole.cz/sk/ve-vyuce/pravidla-pro-ai">Ako vytvoriť pravidlá používania AI v škole</a> a <a href="https://chatveskole.cz/sk/ve-vyuce/doporuceni-zs-ss">Odporúčania pre ZŠ a SŠ</a>, ktoré odkazuje na usmernenie MŠVVaM SR (4 verzie v PDF: pre riaditeľov, pedagógov, žiakov a zákonných zástupcov).</p>
+<p><strong>Ako:</strong> Web radí, aby pravidlá neboli zoznamom zákazov, ale určovali, kedy AI pomáha učeniu a kedy ho nahrádza. Sú dve cesty, ktoré sa dajú kombinovať:</p>
+<ol>
+<li><strong>So žiakmi.</strong> Najprv 45 minút o etike technológií, potom workshop na 115 minút (2. stupeň ZŠ a SŠ). Žiaci píšu na zelené lístočky, kedy AI pomáha, a na červené, kedy učenie nahrádza. Potom ich triedia, v skupinách po 3 až 4 píšu návrhy pravidiel, hlasujú (každý má 3 hlasy) a dohodnú sa, ako ich budú pripomínať a kedy ich vyhodnotia.</li>
+<li><strong>Zhora.</strong> Vedenie zmapuje stav krátkym dotazníkom, dohodne hodnoty, píše pravidlá zvlášť pre učiteľov, žiakov a rodičov, prerokuje ich s pedagogickým zborom, žiackou radou a rodičmi a aspoň raz za pol roka ich vyhodnotí.</li>
+</ol>
+<p>Pri každej úlohe odporúča web uviesť úroveň využitia AI (inšpirácia škálou Leona Furzeho): 1 bez AI, 2 AI na plánovanie, 3 AI na spoluprácu, 4 plné využitie AI, 5 AI ako téma. Pri domácej úlohe tak napíšete napríklad „úroveň 2“ a žiak krátko uvedie, na čo a ako AI použil.</p>
+<p><strong>Pozor:</strong> Zručnosť Školské pravidlá vychádza z českých odporúčaní Národného pedagogického inštitútu ČR, preto jej návrh porovnajte so slovenským usmernením.</p>
+</div>
+</details>
+
+<details class="sit d2">
+<summary>15. Vedenie školy a koordinátori: plánovať, vzdelávať a dodržať pravidlá</summary>
+<div class="body">
+<p><strong>Kde:</strong> <a href="https://chatveskole.cz/sk/prompty">kategória Tvorba strategických dokumentov</a> (9 promptov), <a href="https://chatveskole.cz/sk/sady/vedeni-skoly">sada Vedenie školy</a> (8 zručností) a <a href="https://chatveskole.cz/sk/zaciname/vekove-limity-a-legislativa">Vekové limity a legislatíva</a>.</p>
+<p><strong>Príklady promptov:</strong> Formulácia hodnôt, misie a vízie školy, Plán postupného zavádzania inovácií do vyučovania, Stratégia na podporu inklúzie, Stratégia rozvoja digitálnej gramotnosti, Návrh systému vnútorného hodnotenia kvality vyučovania, Integrácia digitálneho wellbeingu.</p>
+<p><strong>Právne body, ktoré web uvádza:</strong></p>
+<ul>
+<li>AI Act: od 2. 2. 2025 majú školy podporovať AI gramotnosť svojich ľudí. Od 27. 7. 2026 je povinnosť zmiernená (podporovať treba, ale nie je nutné zaručiť určitú úroveň pri každom zamestnancovi). Od 2. 12. 2027 platia prísnejšie pravidlá pre vysokorizikové systémy, napríklad AI, ktorá hodnotí žiakov.</li>
+<li>GDPR: potreba súhlasu rodičov závisí od právneho základu. Slovenské usmernenie web nenašiel a odporúča to prekonzultovať so zodpovednou osobou školy. Zákonných zástupcov treba informovať, aké nástroje používame.</li>
+<li>AI nemá rozhodovať o hodnotení žiakov bez kontroly učiteľa.</li>
+</ul>
+<p><strong>Konektory</strong> (<a href="https://chatveskole.cz/sk/funkce/konektory">stránka</a>): chatbot sa dá prepojiť s Diskom, Gmailom, kalendárom alebo Microsoft 365. Web uvádza príklady ako zo zápisnice z porady urobiť úlohy pre kolegov alebo pripraviť zoznam porád na budúce mesiac. Konektor však vidí všetko, čo vidíte vy, vrátane e-mailov s osobnými údajmi. Pripájajte len pracovný účet, overte to so správcom IT a pred odoslaním e-mailu alebo vytvorením udalosti si potvrdenie prečítajte.</p>
+</div>
+</details>
+
+</div>
+</details>
+
+<details class="sec c6">
+<summary>Ako začať a čo web nerieši</summary>
+<div class="body">
+<p><strong>Prvý týždeň:</strong></p>
+<ol>
+<li>Overte u správcu IT, ktorý školský účet (Gemini alebo Copilot Chat) máte zapnutý. Ak príde prístup od ministerstva, spýtajte sa aj na ten.</li>
+<li>Vyskúšajte jeden prompt na vlastnej práci, napríklad Kvíz alebo Pracovný list (10 minút). Na kontrolu textu pred odoslaním rodičom je hneď použiteľná zručnosť Jazykový korektor: skontroluje pravopis, gramatiku, štýl a typografiu a ku každej oprave pridá vysvetlenie.</li>
+<li>Prompt, ktorý sa osvedčil, premieňte na zručnosť požiadavkou „Urob z tohto promptu zručnosť (skill) vo formáte SKILL.md“. Zručnosti nie sú v ChatGPT Free ani Go. Bez nich vložte inštrukcie do pokynov projektu alebo použite zručnosť ako prompt.</li>
+<li>Jednu hodinu s aplikáciou Tiny vyskúšajte so žiakmi od 11 rokov.</li>
+</ol>
+<p><strong>Ak ste si vytvorili vlastného asistenta:</strong> podľa stránky <a href="https://chatveskole.cz/sk/funkce/zmeny-2026">Zmeny 2026</a> GPTs v ChatGPT prestanú fungovať 11. 12. 2026 a Gems v osobných účtoch Gemini zmiznú 17. 12. 2026 (prevedú sa na koncepty zručností, ktoré musí autor skontrolovať a zapnúť). V Copilote končí App Builder 30. 11. 2026. Web ich nahrádza projektmi a zručnosťami.</p>
+<p><strong>Čo web nerieši a na čo si dať pozor:</strong></p>
+<ul>
+<li>Pochádza z Česka, prevádzkuje ho český spolok. Niektoré metodiky sú len v češtine a zručnosť Školské pravidlá vychádza z českých odporúčaní.</li>
+<li>Slovenské usmernenie MŠVVaM SR je na webe len ako odkaz na PDF a web jeho obsah neopisuje. Prečítajte si ho priamo.</li>
+<li>Funkcie a ceny sa menia. Údaje o funkciách sú podľa webu k 15. 11. 2026, ceny k 23. 11. 2026.</li>
+<li>Katalóg promptov ukazuje len názvy a kategórie. Samotný text promptu otvoríte na jeho podstránke a skopírujete. V tomto oznamu opisujem, čo prompty robia, nie ich plné znenie.</li>
+<li>Web neuvádza konkrétne aktivity pre 1. stupeň. Príklady pri nich sú na 2. stupeň a vyššie.</li>
+<li>Chatbot pripravuje podklady. Hodnotenie žiaka a zodpovednosť za výstup zostávajú u učiteľa.</li>
+</ul>
+</div>
+</details>
+
+<h2 class="part">Časť C: Modelové príklady použitia AI na hodine v každom ročníku</h2>
+<p>Pre každý ročník 1. až 9. je dvadsať príkladov z rôznych predmetov, usporiadaných podľa cyklov ŠVP. Vychádzajú z metodík a odporúčaní ai.iedu.sk, aidetem.cz a chatveskole.cz/sk.</p>
+<details class="sec c1">
+<summary>Pravidlá práce s AI na tabuli</summary>
+<div class="body">
+<p>V každej triede je interaktívna tabuľa alebo displej, žiaci nepoužívajú mobily a tablety sú zatiaľ obmedzené. Preto sú všetky príklady postavené na jednom zariadení, ktoré ovláda učiteľ. Pre tablety sa tento oznam rozšíri neskôr.</p><ul>
+<li><strong>Tabuľu ovláda učiteľ</strong> zo školského účtu (Gemini alebo Copilot Chat, kde ho správca zapol). Žiaci sa k zariadeniu striedajú len pri písaní perom, vyberaní odpovede alebo označovaní chyby.</li>
+<li><strong>Žiadne osobné údaje žiakov</strong> v zadaní: ani meno, ani fotka, ani známky. Web chatveskole.cz aj ministerstvo to odporúčajú.</li>
+<li><strong>Najprv tip žiakov, potom AI.</strong> Pri nižších ročníkoch dá učiteľ AI len také úlohy, ktoré vopred vyskúšal a skontroloval.</li>
+<li><strong>Vždy overovanie.</strong> Každá odpoveď AI sa overí v učebnici, atlase alebo v encyklopédii. Záver hodiny je, že AI môže znieť presvedčivo aj vtedy, keď sa mýli.</li>
+<li><strong>AI nehodnotí žiaka.</strong> Posledné slovo má učiteľ. Poznámka z webu chatveskole.cz: spätná väzba od AI sa nehodí, ak žiaci nepoznajú kritériá alebo ide o hotovú prácu na klasifikáciu.</li>
+<li><strong>Vek.</strong> Podľa chatveskole.cz sú spôsoby využitia určené pre 2. stupeň ZŠ a SŠ. Pri 1. až 4. ročníku sú preto príklady upravené na prácu v triede, kde chatbot ukazuje učiteľ a deti nepíšu zadania samy. Ciele pre 1. cyklus vo ŠVP hovoria o jednoduchom zadaní pre chatbota len pod dohľadom učiteľa.</li>
+</ul><p>Opora pri každom príklade vedie na konkrétnu metodiku alebo stránku. Pri príkladoch označených „upravené pre“ ide o prispôsobenie odporúčania pre daný ročník, nie o presný text webu. Výstup AI sa pri každom zadaní líši, preto ho pripravte vopred a prečítajte pred hodinou.</p>
+</div>
+</details>
+<details class="sec c2">
+<summary>1. cyklus (1. až 3. ročník)</summary>
+<div class="body">
+<p>Cieľ podľa ŠVP: žiaci rozpoznajú AI v bežnom živote, vedia jednoducho opísať strojové učenie, formulujú jednoduché zadanie pre chatbota pod dohľadom učiteľa a nepripisujú AI ľudské vlastnosti. Väčšina aktivít je bez zariadení pre deti.</p><details class="sit d3">
+<summary>1. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Informatika</td><td>Ju a Pí 01: deti si na papieri zakreslia, čo vnímajú zmyslami, a porovnajú to so senzormi robota. Učiteľ premieta prezentáciu na tabuli, deti nepotrebujú žiadne zariadenie.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_01_Vnimanie-a-ucenie.pdf">Ju a Pí 01</a></td></tr>
+<tr><td>2</td><td>Slovenský jazyk</td><td>Hádanky o zvieratách: učiteľ si vopred nechá od chatbota navrhnúť päť jednoduchých hádaniek a skontroluje ich. Na tabuli ich prečíta, deti hádajú. Pri každej sa spýta: Ako to zistíme? Odpoveď nájdu v obrázkovej knihe.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a><br><a href="https://ai.iedu.sk/skoly-a-ucitelia/ako-pouzivat-ai-bezpecne/">Bezpečné používanie AI</a></td></tr>
+<tr><td>3</td><td>Matematika</td><td>Robot sa pomýlil: učiteľ premietne obrázok so šiestimi jablkami a vetu „AI napísala: sú tu 5 jablká“. Deti jablká spočítajú ukazovaním na tabuli a vetu opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 1. ročník</a></td></tr>
+<tr><td>4</td><td>Prírodoveda</td><td>Čo je na obrázku: učiteľ premietne fotku rastliny, deti tipnú jej názov. Potom ju ukáže nástroju, ktorý vie opísať obrázok, a porovná tip detí s jeho odpoveďou. Správnu odpoveď spoločne overia v atlase.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_05_Ucenie-sa-z-prikladov.pdf">Ju a Pí 05</a></td></tr>
+<tr><td>5</td><td>Výtvarná výchova</td><td>Kreslí robot alebo my: deti nadiktujú opis („veľký zelený strom, malý žltý dom“), učiteľ ho zadá nástroju na tvorbu obrázkov. Trieda porovná výsledok so svojimi kresbami a povie, čo robot nepochopil.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>6</td><td>Etická výchova</td><td>Čo zdieľam a čo si nechávam: rozhovor a kartičky bez technológií. Deti triedia, čo sa môže povedať cudzím ľuďom a čo nie.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Čo zdieľam a čo si nechávam</a></td></tr>
+<tr><td>7</td><td>Informatika</td><td>Ju a Pí 02: na tabuli sú obrázky vecí (hodinky, lopta, navigácia v aute, hračka). Deti rozhodnú, kde je AI, a svoj tip zdôvodnia.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_02_Co-je-a-co-nie-je-AI.pdf">Ju a Pí 02</a></td></tr>
+<tr><td>8</td><td>Hudobná výchova</td><td>Kto hovorí: učiteľ pustí krátku nahrávku hlasového asistenta a nahrávku človeka. Deti tipujú, kto je kto, a vysvetlia, podľa čoho to spoznali.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ucime-o-umelej-inteligencii/">Učíme o AI: rozlišovanie AI a človeka</a></td></tr>
+<tr><td>9</td><td>Slovenský jazyk</td><td>Slová na písmeno M: učiteľ nechá AI vymenovať päť slov na písmeno M a do zoznamu vopred vloží dve slová s iným písmenom. Deti ich nájdu a vyčiarknu perom na displeji.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>10</td><td>Triednická hodina</td><td>Moji pomocníci: kto mi pomôže, keď sa niečoho bojím. Deti pomenujú ľudí, ktorým dôverujú. Učiteľ zdôrazní, že AI nie je pomocník, ktorému sa zverujeme.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Moji pomocníci</a></td></tr>
+<tr><td>11</td><td>Triednická hodina</td><td>Telo ako môj radar: deti bez zariadení skúšajú, čo vnímajú zrakom, sluchom a dotykom, a porovnajú to so senzormi robota z tabule.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Telo ako môj radar</a></td></tr>
+<tr><td>12</td><td>Informatika</td><td>Čo robot nevie: v kruhu deti povedia veci, ktoré vedia ony a robot nie (cítiť vôňu, báť sa, mať rád). Učiteľ ich zapisuje na tabuľu.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>13</td><td>Slovenský jazyk</td><td>Povedz to robotovi presne: deti nadiktujú zadanie „nakresli mačku“ a postupne dopĺňajú podrobnosti. Učiteľ po každom doplnení zadá AI nový opis a trieda sleduje, čo sa zmenilo.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>14</td><td>Prírodoveda</td><td>Čo žije v lese: učiteľ pripraví zoznam šiestich zvierat, medzi ktorými je jedno, ktoré v lese nežije. Deti ho nájdu a vyčiarknu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 1. ročník</a></td></tr>
+<tr><td>15</td><td>Matematika</td><td>Rad čísel: učiteľ vloží do radu 1 až 10 dve chyby (chýba číslo, jedno je dvakrát). Deti rad opravia na tabuli.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 1. ročník</a></td></tr>
+<tr><td>16</td><td>Informatika</td><td>Učiteľ hrá robota: deti ukazujú „robotovi“ príklady jabĺk a hrušiek a on sa z nich učí. Na konci trieda skúsi nový obrázok a zistí, či sa robot pomýlil.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_05_Ucenie-sa-z-prikladov.pdf">Ju a Pí 05</a></td></tr>
+<tr><td>17</td><td>Slovenský jazyk</td><td>Pravda alebo nepravda: učiteľ prečíta štyri vety o zvieratách, jedna je nepravdivá. Deti ukážu palec hore alebo dole a vysvetlia prečo.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 1. ročník</a></td></tr>
+<tr><td>18</td><td>Prírodoveda</td><td>Počasie: deti povedia tri slová o počasí, učiteľ ich zadá AI a ona z nich zloží vetu. Deti sa pozrú von z okna a posúdia, či veta sedí.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>19</td><td>Etická výchova</td><td>Skutočné a na obrázku: učiteľ ukáže fotku a kresbu psa. Deti hovoria, čo sa dá urobiť so skutočným psom a čo len s obrázkom.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>20</td><td>Matematika</td><td>Dopĺňanie do 10: učiteľ si vopred nechá od AI vytvoriť päť príkladov a skontroluje ich. Deti ich riešia na tabuli a pri každom povedia, ako to vedia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie, upravené pre 1. ročník</a></td></tr>
+</table></div>
+</div>
+</details>
+<details class="sit d4">
+<summary>2. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Informatika</td><td>Ju a Pí 03: deti napíšu alebo nakreslia postup čistenia zubov krok za krokom pre „robota“. Učiteľ ho vykoná doslovne a trieda opraví chýbajúce kroky.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_03_Algoritmus-a-strojove-ucenie.pdf">Ju a Pí 03</a></td></tr>
+<tr><td>2</td><td>Matematika</td><td>Slovná úloha s chybou: učiteľ nechá AI vymyslieť tri slovné úlohy na sčítanie do 100. Pred riešením trieda zistí, ktorá úloha nemá zmysel alebo jej chýbajú údaje.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 2. ročník</a></td></tr>
+<tr><td>3</td><td>Slovenský jazyk</td><td>Opravujeme robota: učiteľ vopred vytvorí vetu s tromi chybami (veľké písmeno, diakritika, bodka). Deti ich nájdu na tabuli a opravia perom na displeji.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>4</td><td>Prírodoveda</td><td>Znaky jesene: deti povedia tri znaky, učiteľ ich zadá AI a požiada o krátky opis jesene. Deti nájdu vetu, ktorá nesedí s tým, čo vidia za oknom.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>5</td><td>Prírodoveda</td><td>Zdravá desiata: AI na tabuli navrhne desať desiat. Deti vyberú, ktoré by si dali, a vysvetlia prečo. Učiteľ dopĺňa, že AI nevie, čo má kto rád ani čo nemôže jesť.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ako-pouzivat-ai-bezpecne/">Bezpečné používanie AI</a></td></tr>
+<tr><td>6</td><td>Informatika</td><td>Ju a Pí 04: papierové karty s obrázkami sú „dáta“. Deti ich triedia podľa farby a tvaru a zistia, že robot sa učí z toho, čo vidí.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_04_Data.pdf">Ju a Pí 04</a></td></tr>
+<tr><td>7</td><td>Anglický jazyk</td><td>Animals: učiteľ nechá AI vytvoriť osem jednoduchých viet o zvieratách. Deti hádajú zviera podľa vety, učiteľ vopred skontroluje, či sú vety správne.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-kompetencie-v-predmetoch/">AI v predmetoch: Anglický jazyk</a></td></tr>
+<tr><td>8</td><td>Výtvarná výchova</td><td>Dokresli, čo chýba: učiteľ premietne obrázok domu so štyrmi chýbajúcimi súčasťami. Deti dokreslia perom na displeji a vysvetlia, prečo je to chyba.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 2. ročník</a></td></tr>
+<tr><td>9</td><td>Etická výchova</td><td>Baterka pozornosti: krátke cvičenie bez zariadení, kam sa upiera pozornosť a čo ju odvádza.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Baterka pozornosti</a></td></tr>
+<tr><td>10</td><td>Triednická hodina</td><td>Ako si porozumieme: deti si vo dvojiciach hovoria, ako sa cítia, a učiteľ ukáže, že AI robot nevie, čo cítime, ak mu to nepovieme.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Ako si porozumieme?</a></td></tr>
+<tr><td>11</td><td>Informatika</td><td>Nájdi senzory v triede: deti hľadajú, čo „vníma“ ako robot (kamera, mikrofón, dotyk displeja), a porovnajú to s vlastnými zmyslami.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_01_Vnimanie-a-ucenie.pdf">Ju a Pí 01</a></td></tr>
+<tr><td>12</td><td>Slovenský jazyk</td><td>Poskladaj príbeh: učiteľ nechá AI napísať príbeh o troch vetách a rozstrihne ich. Deti vety zoradia a vysvetlia, podľa čoho poznali poradie.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 2. ročník</a></td></tr>
+<tr><td>13</td><td>Matematika</td><td>Hodiny: učiteľ pripraví úlohu o čase s jednou chybou v odpovedi. Deti ju nájdu na ciferníku na tabuli.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 2. ročník</a></td></tr>
+<tr><td>14</td><td>Prírodoveda</td><td>Ako zistíme názov byliny: AI navrhne tri spôsoby. Deti vyberú ten, ktorý sa dá overiť (atlas, učiteľ, kniha), a vysvetlia prečo.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/3_Preco_AI_robi_chyby.pdf">Prečo AI robí chyby (sprievodca pre rodičov)</a></td></tr>
+<tr><td>15</td><td>Etická výchova</td><td>Od emócií k prosbe: deti sa učia požiadať o pomoc slovami. Učiteľ ukáže, že AI nevidí tvár, takže nevie, ako sa cítia.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Od emócií k prosbe</a></td></tr>
+<tr><td>16</td><td>Slovenský jazyk</td><td>Opakovanie abecedy: učiteľ číta otázky, ktoré pripravila AI (Aké písmeno je po M?). Deti odpovedajú, pri chybe učiteľ dá nápovedu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie, upravené pre 2. ročník</a></td></tr>
+<tr><td>17</td><td>Anglický jazyk</td><td>Numbers 1 to 10: AI opíše číslo (it comes after four), deti ho hádajú a ukážu na tabuli.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie, upravené pre 2. ročník</a></td></tr>
+<tr><td>18</td><td>Informatika</td><td>Ju a Pí 09: robopsík Pripomňuf. Rozhovor o tom, prečo robot vždy súhlasí, a či takého kamaráta chceme.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_09_Ambientna-inteligencia.pdf">Ju a Pí 09</a></td></tr>
+<tr><td>19</td><td>Prírodoveda</td><td>Čo keby nesvietilo slnko: učiteľ kladie otázky o dôsledkoch a deti ich kreslia a ukazujú na tabuli.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Čo keby, upravené pre 2. ročník</a></td></tr>
+<tr><td>20</td><td>Etická výchova</td><td>Chceme byť odolní: deti sa učia, čo robiť, keď sa im niečo nedarí, a prečo nechcú „rýchle riešenie“ od robota.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Chceme byť odolní</a></td></tr>
+</table></div>
+</div>
+</details>
+<details class="sit d5">
+<summary>3. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Informatika</td><td>Ju a Pí 05: roboti na výstave mačiek. Deti triedia papierové karty mačiek a zistia, že čím viac príkladov robot vidí, tým lepšie rozpoznáva.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_05_Ucenie-sa-z-prikladov.pdf">Ju a Pí 05</a></td></tr>
+<tr><td>2</td><td>Informatika</td><td>Ju a Pí 06: bludisko. Deti hľadajú cestu v papierovom bludisku a porovnávajú stratégie (pravidlo ľavej ruky, omrvinky). Na tabuli sledujú zhrnutie.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_06_Ucenie-sa-zo-skusenosti.pdf">Ju a Pí 06</a></td></tr>
+<tr><td>3</td><td>Slovenský jazyk</td><td>Rozprávka s koncom: trieda vymyslí začiatok. Každé dieťa si najprv nakreslí vlastný koniec. Potom učiteľ požiada AI o tri možné konce a deti vyberú, ktorý sa im páči, a zdôvodnia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Brainstorming</a><br><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>4</td><td>Matematika</td><td>Násobilka s chybami: učiteľ vopred pripraví tabuľku malej násobilky s dvoma chybami a tvrdí, že ju napísala AI. Deti chyby nájdu a opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>5</td><td>Prírodoveda</td><td>Zvieratá v zime: trieda povie, čo vie. Učiteľ položí AI tri otázky a deti odpovede overujú v encyklopédii. Záver: AI môže znieť presvedčivo aj vtedy, keď sa mýli.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/3_Preco_AI_robi_chyby.pdf">Prečo AI robí chyby (sprievodca pre rodičov)</a></td></tr>
+<tr><td>6</td><td>Informatika</td><td>Ju a Pí 07: predpojatosť. Deti na kartách zistia, že keď robot videl málo príkladov, pomýlil sa pri rozpoznávaní vecí v obchode.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_07_Predpojatost-v-pocitacovom-videni.pdf">Ju a Pí 07</a></td></tr>
+<tr><td>7</td><td>Anglický jazyk</td><td>At the shop: učiteľ nechá AI napísať krátky dialóg v obchode. Trieda ho zahrá v rolách a hľadá chyby v angličtine.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role, upravené pre 3. ročník</a></td></tr>
+<tr><td>8</td><td>Vlastiveda</td><td>Naša obec: deti povedia, čo v obci je. Učiteľ sa spýta AI na našu obec a trieda porovná odpoveď s tým, čo vie. Zistia, že AI nepozná miestne veci spoľahlivo.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/3_Preco_AI_robi_chyby.pdf">Prečo AI robí chyby (sprievodca pre rodičov)</a></td></tr>
+<tr><td>9</td><td>Výtvarná výchova</td><td>Opis rozprávkového domu: deti napíšu opis, AI ho nakreslí. Trieda zistí, čo AI nepochopila, a opis zlepší. Učia sa dávať jasné zadania.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>10</td><td>Triednická hodina</td><td>Zmyslová skúsenosť a AI: deti porovnajú, čo je skutočný zážitok (vôňa lesa) a čo je len obrázok alebo opis.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Zmyslová skúsenosť a AI</a></td></tr>
+<tr><td>11</td><td>Informatika</td><td>Ju a Pí 08: deti zoradia slová na kartičkách podľa toho, ako spolu súvisia, a zistia, ako si jazykový model „predstavuje“ vzťahy medzi slovami.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_08_Jazykovy-model.pdf">Ju a Pí 08</a></td></tr>
+<tr><td>12</td><td>Slovenský jazyk</td><td>Vymysli lepšie zadanie: trieda zlepšuje zadanie „napíš príbeh“ na „napíš príbeh o zvierati v lese“. Učiteľ po každej verzii zadá AI nový opis a deti porovnajú výsledky.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>13</td><td>Matematika</td><td>Chyba v riešení: učiteľ pripraví slovnú úlohu a riešenie od „AI“ s jednou chybou. Deti ju nájdu a opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 3. ročník</a></td></tr>
+<tr><td>14</td><td>Hudobná výchova</td><td>Rytmus zvierat: AI navrhne rytmický vzor zo slabík (ko-ko-ša). Deti ho vytlieskajú a upravia podľa vlastného nápadu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Brainstorming, upravené pre 3. ročník</a></td></tr>
+<tr><td>15</td><td>Prírodoveda</td><td>Živé a neživé: AI vytvorí zoznam desiatich vecí, deti ich roztriedia a nájdu dve veci zaradené zle.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 3. ročník</a></td></tr>
+<tr><td>16</td><td>Informatika</td><td>Ju a Pí 04: dáta a oblak. Deti triedia papierové obrázky, texty a zvuky ako druhy dát a hovoria, kde sa uchovávajú.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_04_Data.pdf">Ju a Pí 04</a></td></tr>
+<tr><td>17</td><td>Slovenský jazyk</td><td>Opravujeme text: učiteľ vopred pripraví tri vety o jari s chybami v i/y a diakritike. Deti chyby nájdu a opravia perom na displeji.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb, upravené pre 3. ročník</a></td></tr>
+<tr><td>18</td><td>Matematika</td><td>Opakovanie násobilky: učiteľ číta otázky, ktoré pripravila AI, od ľahších po ťažšie. Deti odpovedajú a pri chybe dostanú nápovedu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie, upravené pre 3. ročník</a></td></tr>
+<tr><td>19</td><td>Anglický jazyk</td><td>Opakovanie slovíčok: AI opisuje predmety (it is red and round), deti hádajú slovo.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie, upravené pre 3. ročník</a></td></tr>
+<tr><td>20</td><td>Triednická hodina</td><td>Chceme byť odolní: deti rozprávajú o tom, čo robia, keď sa im niečo nedarí, a komu sa vedia zveriť.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/ai-a-dusevne-zdravie-mladsi-ziaci/">Emocionálny kompas: Chceme byť odolní</a></td></tr>
+</table></div>
+</div>
+</details>
+
+</div>
+</details>
+<details class="sec c3">
+<summary>2. cyklus (4. a 5. ročník)</summary>
+<div class="body">
+<p>Cieľ podľa ŠVP: žiaci rozumejú, že AI sa učí zo vzorov v dátach, používajú generatívnu AI pod vedením učiteľa, overujú informácie a chránia súkromie.</p><details class="sit d6">
+<summary>4. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Informatika</td><td>Ju a Pí 08: papierová hra „ďalšie slovo“. Deti doplňajú vetu, potom to isté urobí AI na tabuli. Trieda porovná, čo je zhoda a čo nie.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_08_Jazykovy-model.pdf">Ju a Pí 08</a></td></tr>
+<tr><td>2</td><td>Informatika</td><td>Ju a Pí 09: robopsík a ambientná inteligencia. Rozhovor o zariadeniach, ktoré počúvajú, a pravidlá súkromia v domácnosti.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_09_Ambientna-inteligencia.pdf">Ju a Pí 09</a></td></tr>
+<tr><td>3</td><td>Slovenský jazyk</td><td>Osnova slohu o výlete: žiaci najprv vymyslia osnovu na papier. Učiteľ ju zadá AI s otázkou, čo chýba, a trieda rozhodne, čo z návrhov prijme.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Plánovanie a štruktúra, upravené pre 4. ročník</a></td></tr>
+<tr><td>4</td><td>Matematika</td><td>Slovné úlohy: učiteľ nechá AI vymyslieť tri úlohy s násobením. Trieda zistí, ktorá nemá riešenie alebo jej chýbajú údaje.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>5</td><td>Prírodoveda</td><td>Rozhovor s lúčnym kvetom: AI odpovedá ako rastlina na otázky z pracovného listu. Odpovede trieda overí v učebnici.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role</a></td></tr>
+<tr><td>6</td><td>Anglický jazyk</td><td>My family: AI napíše päť viet o rodine. Žiaci hľadajú gramatické chyby a opravujú ich na tabuli.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>7</td><td>Výtvarná výchova</td><td>Algoritmus kresby: žiaci napíšu pre „robota“ postup na nakreslenie domu. Učiteľ ho vykoná doslovne. Potom to isté zadá AI a porovnajú výsledky.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_03_Algoritmus-a-strojove-ucenie.pdf">Ju a Pí 03</a></td></tr>
+<tr><td>8</td><td>Informatika</td><td>Overujeme AI: trieda dostane tri odpovede AI na otázku o planétach. Overí ich v atlase a zapíše do tabuľky pravda, nepravda, neviem.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/3_Preco_AI_robi_chyby.pdf">Prečo AI robí chyby (sprievodca pre rodičov)</a></td></tr>
+<tr><td>9</td><td>Etická výchova</td><td>Čo patrí do chatu: učiteľ ukáže zlé a dobré zadanie pre AI (meno, adresa, fotka verzus iniciály a všeobecná otázka). Trieda zlé zadanie opraví.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ako-pouzivat-ai-bezpecne/">Bezpečné používanie AI</a><br><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>10</td><td>Triednická hodina</td><td>Emoji Challenge: žiaci pomenúvajú emócie a rozprávajú, ako sa dajú vyjadriť bez emoji a bez AI.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: Emoji Challenge</a></td></tr>
+<tr><td>11</td><td>Slovenský jazyk</td><td>Vysvetlite to AI: žiaci vysvetľujú pravidlo o veľkých písmenách chatbotu, ktorý sa tvári nechápavo. Učiteľ píše ich vysvetlenie a trieda hodnotí zrozumiteľnosť.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Vysvetľovanie</a></td></tr>
+<tr><td>12</td><td>Matematika</td><td>Opis obrázku: AI opíše trojuholník a štvoruholník a v opise je jedna chyba. Trieda ju nájde a opraví s pomocou obrázku.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>13</td><td>Vlastiveda</td><td>Čo keby neboli cesty: AI kladie otázky o dôsledkoch a žiaci zapisujú reťaze príčin a dôsledkov.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Čo keby</a></td></tr>
+<tr><td>14</td><td>Informatika</td><td>Kvalita zadania: učiteľ dá AI nejasné a potom presné zadanie na tú istú úlohu. Trieda porovná odpovede a vyvodí pravidlo.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">Ciele AI gramotnosti v ŠVP</a></td></tr>
+<tr><td>15</td><td>Etická výchova</td><td>Pravidlá pre AI v našej triede: žiaci zostavia tri pravidlá, napríklad nepísať osobné údaje, vždy overovať, pýtať sa učiteľa.</td><td><a href="https://ai.iedu.sk/pravidla-pouzivania-ai-v-skole-ako-ich-vytvorit-spolu-so-ziakmi/">Pravidlá používania AI so žiakmi</a></td></tr>
+<tr><td>16</td><td>Prírodoveda</td><td>Prečo sa mení počasie: AI kladie návodné otázky a žiaci sami nachádzajú vysvetlenie. Učiteľ ho overí v učebnici.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spoločné objavovanie, upravené pre 4. ročník</a></td></tr>
+<tr><td>17</td><td>Slovenský jazyk</td><td>Názov triedneho časopisu: žiaci najprv napíšu vlastné nápady, potom ich s AI rozširujú a vyberú jeden.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Brainstorming</a></td></tr>
+<tr><td>18</td><td>Matematika</td><td>Plán triedneho projektu: žiaci napíšu kroky a čas, AI sa pýta, čo chýba a či je plán reálny.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Plánovanie a štruktúra</a></td></tr>
+<tr><td>19</td><td>Informatika</td><td>Ju a Pí 04: dáta. Žiaci zisťujú, aké dáta zbiera ich telefón doma, a hovoria o súkromí.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_04_Data.pdf">Ju a Pí 04</a></td></tr>
+<tr><td>20</td><td>Triednická hodina</td><td>Keď sú emócie silné: žiaci hovoria o tom, ako si poradiť, a prečo AI nenahradí človeka.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: Keď sú emócie silné</a></td></tr>
+</table></div>
+</div>
+</details>
+<details class="sit d1">
+<summary>5. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Slovenský jazyk</td><td>Hľadanie chýb: učiteľ nechá AI napísať odsek o jeseni s tromi pravopisnými chybami (i/y). Trieda ich nájde a vysvetlí pravidlo.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>2</td><td>Matematika</td><td>Zlomky: žiaci vysvetľujú zlomky chatbotu, ktorý sa tvári, že nič nevie. Učiteľ píše ich vysvetlenia. Trieda hodnotí, či by mu rozumelo aj mladšie dieťa.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Vysvetľovanie</a></td></tr>
+<tr><td>3</td><td>Prírodoveda</td><td>Rastliny okolo nás: AI kladie jednu otázku za druhou a trieda skupinovo odpovedá. Pri chybe trieda opraví odpoveď podľa učebnice.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Biologia.pdf">AI v predmetoch: Biológia: Rastliny okolo nás</a></td></tr>
+<tr><td>4</td><td>Vlastiveda</td><td>Čo keby nebolo elektriny: AI kladie otázky o dôsledkoch. Žiaci zapisujú reťaze príčin a dôsledkov na tabuľu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Čo keby</a></td></tr>
+<tr><td>5</td><td>Anglický jazyk</td><td>Dialóg v obchode: AI hrá predavača, trieda hlasuje, čo povie zákazník. Učiteľ píše odpovede a opravujú sa chyby.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role</a></td></tr>
+<tr><td>6</td><td>Informatika</td><td>Dataset z kariet: trieda z 12 papierových kariet zvierat zostaví učiaci súbor a zistí, ako zle vyvážené karty zmenia výsledok.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_01-Dataset_metodika-SK.pdf">Karty: Strojové učenie 01: Dataset</a></td></tr>
+<tr><td>7</td><td>Výtvarná výchova</td><td>AI obrázok a vlastná kresba: žiaci porovnajú, čo AI nakreslila a čo by nakreslili oni. Rozprávajú, čo AI nevie (nálada, vlastný zážitok).</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-kompetencie-v-predmetoch/">AI v predmetoch: Výtvarná výchova</a></td></tr>
+<tr><td>8</td><td>Etická výchova</td><td>Pravidlá pre AI v triede: trieda spolu zostaví päť pravidiel a zapíše ich na tabuľu.</td><td><a href="https://ai.iedu.sk/pravidla-pouzivania-ai-v-skole-ako-ich-vytvorit-spolu-so-ziakmi/">Pravidlá používania AI so žiakmi</a></td></tr>
+<tr><td>9</td><td>Informatika</td><td>AI hádá pravdepodobne: učiteľ napíše začiatok vety, trieda tipne pokračovanie, potom AI. Zistia, že AI vyberá pravdepodobné slovo, nie pravdivé.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_08_Jazykovy-model.pdf">Ju a Pí 08</a></td></tr>
+<tr><td>10</td><td>Triednická hodina</td><td>Má to zmysel: žiaci posudzujú rady AI na situácie z triedy a rozhodujú, kedy by sa mali opýtať človeka.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: Má to zmysel?</a></td></tr>
+<tr><td>11</td><td>Slovenský jazyk</td><td>Námety na triedny projekt ku Dňu Zeme: žiaci najprv zapíšu vlastné nápady, potom ich s AI rozširujú a vyberú jeden.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Brainstorming</a></td></tr>
+<tr><td>12</td><td>Matematika</td><td>Chyba v riešení: AI vyrieši slovnú úlohu a urobí jednu chybu v postupe. Žiaci ju nájdu a vysvetlia, v čom je.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>13</td><td>Biológia</td><td>Prečo rastliny potrebujú svetlo: AI kladie návodné otázky, žiaci sami dospejú k odpovedi a napíšu zhrnutie.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spoločné objavovanie</a></td></tr>
+<tr><td>14</td><td>Dejepis</td><td>Čo keby neexistovalo písmo: AI kladie otázky o dôsledkoch pre históriu a žiaci zapisujú reťaze príčin a dôsledkov.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Čo keby</a></td></tr>
+<tr><td>15</td><td>Informatika</td><td>Ju a Pí 07: predpojatosť. Žiaci na kartách zistia, ako málo príkladov vedie k omylom pri rozpoznávaní.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_JuPi_07_Predpojatost-v-pocitacovom-videni.pdf">Ju a Pí 07</a></td></tr>
+<tr><td>16</td><td>Slovenský jazyk</td><td>Opakovanie vybraných slov: AI kladie po jednej otázke, trieda odpovedá a pri chybe dostane nápovedu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie</a></td></tr>
+<tr><td>17</td><td>Matematika</td><td>Obvod a obsah: AI kladie návodné otázky a žiaci sami dospejú k vzorcu, ktorý zapíšu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spoločné objavovanie</a></td></tr>
+<tr><td>18</td><td>Geografia</td><td>Rozhovor s riekou Dunaj: AI odpovedá v role rieky na otázky žiakov. Odpovede overia v atlase.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role</a></td></tr>
+<tr><td>19</td><td>Anglický jazyk</td><td>Hľadanie chýb: AI napíše päť viet o rodine s dvoma gramatickými chybami. Žiaci ich nájdu a opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>20</td><td>Triednická hodina</td><td>AI sa pýta, ja rozhodujem: žiaci posudzujú situácie, kde im AI niečo radí, a rozhodujú sa sami.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: AI sa pýta, ja rozhodujem</a></td></tr>
+</table></div>
+</div>
+</details>
+
+</div>
+</details>
+<details class="sec c4">
+<summary>3. cyklus (6. až 9. ročník)</summary>
+<div class="body">
+<p>Cieľ podľa ŠVP: žiaci rozumejú princípom AI, vyberajú nástroje podľa úlohy, transparentne priznávajú použitie AI, kriticky overujú výstupy a analyzujú jej dopad. Pri mediálnej výchove web odporúča 8. a 9. ročník.</p><details class="sit d2">
+<summary>6. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Informatika</td><td>Dataset: žiaci vytvoria vlastný malý dataset z kariet a zistia, ako kvalita údajov mení výsledok.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_01-Dataset_metodika-SK.pdf">Karty: Strojové učenie 01: Dataset</a></td></tr>
+<tr><td>2</td><td>Informatika</td><td>Etika vývoja a využitia technológií: diskusia o rizikách a prínosoch AI na príklade z bežného života.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Etika_Etika-vyvoje-a-vyuziti-technologii-SK.pdf">Karty: Etika 01: Etika vývoja a využitia technológií</a></td></tr>
+<tr><td>3</td><td>Slovenský jazyk</td><td>Poézia medzi promptmi: žiaci si zadávajú AI básnické úlohy a porovnávajú výsledok s autorskou básňou.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Slovensky-jazykLiteratura-.pdf">AI v predmetoch: Slovenský jazyk a literatúra: Poézia medzi promptmi</a></td></tr>
+<tr><td>4</td><td>Matematika</td><td>Matematika pre život: úlohy z bežného života, ktoré trieda rieši a porovnáva s postupom AI.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Matematika-.pdf">AI v predmetoch: Matematika: Matematika pre život</a></td></tr>
+<tr><td>5</td><td>Biológia</td><td>Rastliny okolo nás: žiaci zistia, ktoré tvrdenia AI o rastlinách sedia s atlasom.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Biologia.pdf">AI v predmetoch: Biológia: Rastliny okolo nás</a></td></tr>
+<tr><td>6</td><td>Anglický jazyk</td><td>Vynálezcovia slov: žiaci vymýšľajú nové slová a porovnávajú ich s návrhmi AI.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Anglictina-02-SK-.pdf">AI v predmetoch: Anglický jazyk: Vynálezcovia slov</a></td></tr>
+<tr><td>7</td><td>Dejepis</td><td>Rozhovor v role: AI odpovedá ako egyptský pisár. Žiaci jeho tvrdenia overujú v učebnici a zapíšu rozdiely.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role</a></td></tr>
+<tr><td>8</td><td>Hudobná výchova</td><td>Zvukové premeny: žiaci sledujú, ako AI mení zvuk a hlas, a diskutujú o rozdiele medzi originálom a úpravou.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Hudobna-vychova-01.pdf">AI v predmetoch: Hudobná výchova: Zvukové premeny</a></td></tr>
+<tr><td>9</td><td>Informatika</td><td>Kto je Sára: príbeh o digitálnej stope. Žiaci zisťujú, čo sa dá o postave nájsť na internete.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/9_Medialna-vychova-08_Kyberbezpecnost-I.pdf">AI v predmetoch: 06 Kyberbezpečnosť: Kto je Sára? (digitálna stopa a OSINT)</a></td></tr>
+<tr><td>10</td><td>Slovenský jazyk</td><td>Opakovanie slovných druhov: AI kladie po jednej otázke a trieda odpovedá. Pri chybe AI napovie a trieda opraví odpoveď.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie</a></td></tr>
+<tr><td>11</td><td>Geografia</td><td>Prečo sa striedajú ročné obdobia: AI kladie návodné otázky a žiaci sami dospejú k vysvetleniu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spoločné objavovanie</a></td></tr>
+<tr><td>12</td><td>Fyzika</td><td>Model a čierna skrinka: žiaci zisťujú, čo je v škatuli, len podľa vstupov a výstupov, a porovnajú to s tým, ako AI „vidí“ svet. Materiál je v češtine.</td><td><a href="https://kurikulum.aidetem.cz/knowledgebase/fyzika-01-model-cerna-skrinka/">Kurikulum aidetem.cz: Fyzika 01 Model a čierna skrinka</a></td></tr>
+<tr><td>13</td><td>Slovenský jazyk</td><td>Má sa čítať kniha, alebo pozerať film: AI oponuje a pýta sa na dôkazy. Trieda zapisuje argumenty a protiargumenty.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Argumentácia</a></td></tr>
+<tr><td>14</td><td>Informatika</td><td>Etika v rozhodovaní: žiaci diskutujú, ako rozhoduje človek a ako AI, a čo je spravodlivé.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Etika_Etika-v-rozhodovani-SK.pdf">Karty: Etika 02: Etika v rozhodovaní</a></td></tr>
+<tr><td>15</td><td>Triednická hodina</td><td>AI v mojom živote: žiaci zapisujú, kde sa s AI stretávajú, a rozprávajú, čo im pomáha a čo nie.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: AI v mojom živote</a></td></tr>
+<tr><td>16</td><td>Matematika</td><td>Opakovanie zlomkov: AI kladie po jednej otázke od ľahších po ťažšie. Trieda odpovedá, AI pri chybe napovie.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie</a></td></tr>
+<tr><td>17</td><td>Dejepis</td><td>Čo keby neexistovalo poľnohospodárstvo: AI kladie otázky o dôsledkoch a žiaci zapisujú reťaze príčin a dôsledkov.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Čo keby</a></td></tr>
+<tr><td>18</td><td>Biológia</td><td>Chyby v texte o bunke: učiteľ nechá AI napísať odsek s tromi chybami, žiaci ich nájdu a opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>19</td><td>Slovenský jazyk</td><td>Nápady na školský časopis: žiaci najprv zapíšu vlastné nápady, potom ich s AI rozširujú a vyberú jeden.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Brainstorming</a></td></tr>
+<tr><td>20</td><td>Technická výchova</td><td>Plán výrobku: žiaci rozdelia prácu na kroky a odhadnú čas. AI sa pýta, čo chýba a či je plán reálny.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Plánovanie a štruktúra</a></td></tr>
+</table></div>
+</div>
+</details>
+<details class="sit d3">
+<summary>7. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Informatika</td><td>Strojové učenie s učiteľom: žiaci si vyskúšajú, ako sa AI učí rozpoznávať vzory z príkladov, ktoré jej dá človek.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_02-Strojove-uceni-s-ucitelem_metodika-SK.pdf">Karty: Strojové učenie 02: Strojové učenie s učiteľom</a></td></tr>
+<tr><td>2</td><td>Informatika</td><td>Zaujatosť: diskusia o tom, prečo AI robí chyby pri nevyvážených dátach, s praktickými aktivitami.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_03-Predpojatost_metodika-SK.pdf">Karty: Strojové učenie 03: Zaujatosť</a></td></tr>
+<tr><td>3</td><td>Geografia</td><td>Čo keby zemská os nebola naklonená: AI navrhuje zmenu a pýta sa na dôsledky. Žiaci reťazia príčiny a dôsledky.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Čo keby</a></td></tr>
+<tr><td>4</td><td>Biológia</td><td>Chyby v texte o stavovcoch: učiteľ nechá AI napísať odsek s tromi vecnými chybami. Trieda ich nájde a opraví.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>5</td><td>Dejepis</td><td>Rozhovor s Máriou Teréziou o školskej reforme: AI odpovedá v role, žiaci odpovede porovnajú s učebnicou.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role</a></td></tr>
+<tr><td>6</td><td>Slovenský jazyk</td><td>Spätná väzba k úvahe: žiaci najprv sami posúdia anonymný vzor podľa kritérií, potom porovnajú svoje hodnotenie s hodnotením AI.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spätná väzba</a></td></tr>
+<tr><td>7</td><td>Anglický jazyk</td><td>Etické a morálne dilemy: žiaci diskutujú o dilemách a porovnávajú svoje odpovede s argumentmi AI.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Anglictina-01-SK.pdf">AI v predmetoch: Anglický jazyk: Etické a morálne dilemy</a></td></tr>
+<tr><td>8</td><td>Matematika</td><td>Percentá vysvetlené chatbotu: žiaci vysvetľujú percentá postave, ktorá nič nevie. Trieda hodnotí, či vysvetlenie stačí.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Vysvetľovanie</a></td></tr>
+<tr><td>9</td><td>Informatika</td><td>Veľké dáta: žiaci zisťujú, kde sa s veľkými dátami stretávajú a ako sa spracúvajú.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Velka-data_01-velka-data-Big-data-SK.pdf">Karty: Dáta 01: Veľké dáta</a></td></tr>
+<tr><td>10</td><td>Triednická hodina</td><td>Keď AI príliš súhlasí: žiaci hľadajú, čo AI vynecháva, keď len prikyvuje, a čo tu chýba.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: Keď AI príliš súhlasí, Čo tu chýba?</a></td></tr>
+<tr><td>11</td><td>Informatika</td><td>Rozvoj myslenia s využitím četbota: učiteľ vedie rozhovor s AI otázkami, ktoré rozvíjajú myslenie, a žiaci hodnotia, ktoré otázky boli najlepšie.</td><td><a href="https://kurikulum.aidetem.cz/knowledgebase/rozvoj-mysleni-s-vyuzitim-chatbota/">Kurikulum aidetem.cz: Rozvoj myslenia s využitím chatbota</a></td></tr>
+<tr><td>12</td><td>Biológia</td><td>Fotosyntéza vysvetlená niekomu, kto nikdy nevidel rastlinu: žiaci vysvetľujú chatbotu, ktorý sa tvári nechápavo. Trieda hodnotí, či mu vysvetlenie stačí.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Vysvetľovanie</a></td></tr>
+<tr><td>13</td><td>Geografia</td><td>Mali by sa v centre mesta obmedziť autá: AI oponuje a žiada dôkazy. Trieda zapisuje argumenty.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Argumentácia</a></td></tr>
+<tr><td>14</td><td>Etická výchova</td><td>Rozhodujem, nielen nasledujem: žiaci posudzujú situácie, kde im AI radí, a rozhodujú sa sami.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: Rozhodujem, nielen nasledujem</a></td></tr>
+<tr><td>15</td><td>Výtvarná výchova</td><td>Bežiaci vlk: žiaci rozoberajú, ako AI a animácia ukazujú pohyb, a porovnajú to s vlastnou kresbou.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Vytvarna-vychova-I.-SK.pdf">AI v predmetoch: Výtvarná výchova: Bežiaci vlk</a></td></tr>
+<tr><td>16</td><td>Matematika</td><td>Opakovanie rovníc: AI kladie po jednej otázke a trieda odpovedá. Pri chybe AI napovie.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie</a></td></tr>
+<tr><td>17</td><td>Fyzika</td><td>Prečo plávajú lode: AI kladie návodné otázky, žiaci dospejú k vysvetleniu a zapíšu ho.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spoločné objavovanie</a></td></tr>
+<tr><td>18</td><td>Anglický jazyk</td><td>Rozhovor v role: AI odpovedá po anglicky ako známa postava z literatúry. Žiaci kladú otázky a overujú odpovede.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role</a></td></tr>
+<tr><td>19</td><td>Dejepis</td><td>Čo keby neexistovala kníhtlač: AI kladie otázky o dôsledkoch. Žiaci zapisujú reťaze príčin.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Čo keby</a></td></tr>
+<tr><td>20</td><td>Triednická hodina</td><td>Ako odpovedať slušne a s hranicami: žiaci nacvičujú odpovede v situáciách, kde by im AI poradila inak.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: Ako odpovedať slušne a s hranicami</a></td></tr>
+</table></div>
+</div>
+</details>
+<details class="sit d5">
+<summary>8. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Informatika</td><td>Posilňované učenie: žiaci pochopia, ako sa AI učí z odmien a trestov, a vyskúšajú si to na papierovej hre.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Strojove-uceni_04-Posilovane-uceni_metodika-SK.pdf">Karty: Strojové učenie 04: Posilňované učenie</a></td></tr>
+<tr><td>2</td><td>Informatika</td><td>Odporúčacie systémy na sociálnych sieťach: trieda skúma, aké dáta o nás zbierajú a ako ovplyvňujú obsah.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/7_Medialna-vychova-01.pdf">AI v predmetoch: 01 Mediálna výchova: Odporúčacie systémy na sociálnych sieťach</a></td></tr>
+<tr><td>3</td><td>Občianska náuka</td><td>Mikrocielenie a dark posting: žiaci rozoberajú ukážky reklám a diskutujú o manipulácii.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/4_Medialna-vychova-02.pdf">AI v predmetoch: 02 Mediálna výchova: Mikrocielenie a dark posting</a></td></tr>
+<tr><td>4</td><td>Chémia</td><td>Hádaj chemické prvky: AI hrá hru, trieda hádá prvky podľa vlastností a overuje v tabuľke.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Chemia.pdf">AI v predmetoch: Chémia: Hádaj chemické prvky!</a></td></tr>
+<tr><td>5</td><td>Fyzika</td><td>Opakovanie pred písomkou: AI kladie po jednej otázke o elektrickom obvode. Trieda odpovedá a pri chybe dostane nápovedu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie</a></td></tr>
+<tr><td>6</td><td>Občianska náuka</td><td>Mali by byť mobily cez prestávky zakázané: AI oponuje a pýta sa na dôkazy. Trieda zapisuje argumenty a protiargumenty.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Argumentácia</a></td></tr>
+<tr><td>7</td><td>Slovenský jazyk</td><td>Analýza textu pomocou generatívnej AI: žiaci porovnávajú vlastnú analýzu s analýzou AI a hľadajú rozdiely.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/5_Analyza-textu-pomocou-generativnej-umelej-inteligencie.pdf">AI v predmetoch: 09 Analýza textu pomocou generatívnej umelej inteligencie</a></td></tr>
+<tr><td>8</td><td>Geografia</td><td>Inteligentné technológie v poľnohospodárstve: žiaci skúmajú, ako AI pomáha pri pestovaní plodín.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2025/11/Geografia.pdf">AI v predmetoch: Geografia: Inteligentné technológie v poľnohospodárstve</a></td></tr>
+<tr><td>9</td><td>Hudobná výchova</td><td>Hudobné žánre a generovanie hudby: učiteľ ukáže tvorbu hudby pomocou AI a trieda diskutuje o autorstve.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Hudobna-vychova-02.pdf">AI v predmetoch: Hudobná výchova: Hudobné žánre a generovanie hudby</a></td></tr>
+<tr><td>10</td><td>Triednická hodina</td><td>Strojové rozpoznávanie emócií: žiaci hodnotia presnosť nástrojov a diskutujú o súkromí.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/1_Medialna-vychova-04.pdf">AI v predmetoch: 04 Mediálna výchova: Strojové rozpoznávanie emócií</a></td></tr>
+<tr><td>11</td><td>Matematika</td><td>Chyba v riešení rovnice: AI vyrieši rovnicu s jednou chybou v postupe. Žiaci ju nájdu a opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>12</td><td>Dejepis</td><td>Rozhovor s Jánom Amosom Komenským o školách: AI odpovedá v role, žiaci odpovede porovnajú s učebnicou.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role</a></td></tr>
+<tr><td>13</td><td>Slovenský jazyk</td><td>Osnova referátu: žiaci najprv napíšu vlastnú osnovu, potom AI kladie otázky o medzerách a o reálnosti plánu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Plánovanie a štruktúra</a></td></tr>
+<tr><td>14</td><td>Triednická hodina</td><td>Digitálna blízkosť: žiaci porovnávajú vzťah s človekom a s chatbotom a zisťujú, že empatia AI je len zdanlivá. Materiál je v češtine.</td><td><a href="https://kurikulum.aidetem.cz/knowledgebase/wellbeing-2-digitalni-blizkost/">Kurikulum aidetem.cz: Wellbeing 02 Digitálna blízkosť</a></td></tr>
+<tr><td>15</td><td>Anglický jazyk</td><td>Ideas for a school trip: žiaci najprv zapíšu vlastné nápady po anglicky, potom ich s AI rozširujú a vyberú jeden.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Brainstorming</a></td></tr>
+<tr><td>16</td><td>Fyzika</td><td>Čo keby neexistovalo trenie: AI kladie otázky o dôsledkoch a žiaci zapisujú príčiny a dôsledky.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Čo keby</a></td></tr>
+<tr><td>17</td><td>Slovenský jazyk</td><td>Mala by sa čítať povinná literatúra: AI oponuje a žiada dôkazy, žiaci obhajujú svoje stanovisko.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Argumentácia</a></td></tr>
+<tr><td>18</td><td>Chémia</td><td>Opakovanie periodickej tabuľky: AI kladie po jednej otázke, trieda odpovedá a pri chybe dostane nápovedu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie</a></td></tr>
+<tr><td>19</td><td>Biológia</td><td>Chyby v texte o ľudskom tele: AI napíše odsek s tromi chybami, žiaci ich nájdu a opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>20</td><td>Triednická hodina</td><td>Bezpečnostný protokol: žiaci zostavia zoznam situácií, kedy AI nestačí a treba hľadať človeka.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: Bezpečnostný protokol: kedy AI nestačí?</a></td></tr>
+</table></div>
+</div>
+</details>
+<details class="sit d5">
+<summary>9. ročník: 20 modelových príkladov</summary>
+<div class="body">
+<div class="tbl"><table>
+<tr><th>#</th><th>Predmet</th><th>Model príkladu</th><th>Opora</th></tr>
+<tr><td>1</td><td>Dejepis</td><td>Príčiny a prekážky vzniku Európskej únie: žiaci využívajú AI na zber argumentov a overujú ich v zdrojoch.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/Dejepis-.pdf">AI v predmetoch: Dejepis: Príčiny a prekážky vzniku Európskej únie</a></td></tr>
+<tr><td>2</td><td>Občianska náuka</td><td>Vplyv generatívnej AI na propagandu: žiaci analyzujú politické posolstvá a rozpoznávajú manipulatívne techniky.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/2_Medialna-vychova-03.pdf">AI v predmetoch: 03 Mediálna výchova: Vplyv generatívnej AI na propagandu</a></td></tr>
+<tr><td>3</td><td>Informatika</td><td>Syntetická realita (deepfakes): žiaci sa učia rozpoznávať umelo vytvorený obsah.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/8_Medialna-vychova-05.pdf">AI v predmetoch: 05 Mediálna výchova: Syntetická realita (deepfakes)</a></td></tr>
+<tr><td>4</td><td>Triednická hodina</td><td>Deepfake a nudify aplikácie: citlivá téma, učiteľ vedie rozhovor o tom, prečo deti mlčia a ako reagovať. Pripravte sa vopred a v prípade potreby prizvite školského psychológa.</td><td><a href="https://ai.iedu.sk/deepfake-a-nudify-aplikacie-v-skole-preco-deti-mlcia-a-ako-reagovat/">Deepfake a nudify aplikácie v škole</a></td></tr>
+<tr><td>5</td><td>Anglický jazyk</td><td>Argumentácia po anglicky: AI oponuje, žiaci obhajujú stanovisko po anglicky a zapisujú dôkazy.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Argumentácia</a></td></tr>
+<tr><td>6</td><td>Slovenský jazyk</td><td>Spätná väzba k rozpracovanej úvahe: žiaci posúdia text podľa kritérií zo slohu a porovnajú to s AI.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spätná väzba</a></td></tr>
+<tr><td>7</td><td>Matematika</td><td>Opakovanie pred Testovaním 9: AI kladie po jednej otázke, trieda odpovedá a pri chybe dostane nápovedu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Opakovanie</a></td></tr>
+<tr><td>8</td><td>Fyzika</td><td>Chyby v texte o slnečnej sústave: učiteľ nechá AI napísať odsek s tromi chybami. Trieda ich nájde, pomenuje a opraví.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>9</td><td>Informatika</td><td>Interpretácia dát pomocou četbotov: žiaci overujú, že nie všetko, čo AI povie, je pravda.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/04/Informatika_Karty_Velka-data_02-Int-SK.pdf">Karty: Dáta 02: Interpretácia dát pomocou četbotov</a></td></tr>
+<tr><td>10</td><td>Triednická hodina</td><td>Plán projektu o budúcej profesii: žiaci si napíšu osnovu a harmonogram. AI kladie otázky o medzerách a o reálnosti plánu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Plánovanie a štruktúra</a></td></tr>
+<tr><td>11</td><td>Slovenský jazyk</td><td>Rozhovor s Ľudovítom Štúrom o jazyku: AI odpovedá v role, žiaci odpovede overujú v zdrojoch.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Rozhovor v role</a></td></tr>
+<tr><td>12</td><td>Chémia</td><td>Chyby v texte o kyselinách a zásadách: AI napíše odsek s tromi chybami, žiaci ich nájdu a opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>13</td><td>Biológia</td><td>Mala by sa v škole podávať len zdravá desiata: AI oponuje a pýta sa na dôkazy, žiaci obhajujú svoje stanovisko.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Argumentácia</a></td></tr>
+<tr><td>14</td><td>Informatika</td><td>Chatboty vo výučbe: úvod do promptovania podľa pracovných listov. Web uvádza vek od 13 rokov, preto ho používajte len so staršími žiakmi.</td><td><a href="https://ai.iedu.sk/wp-content/uploads/2026/05/10_Cetboty-vo-vyucbe_Pracovne-listy.pdf">AI v predmetoch: 07 Četboty vo výučbe: metodická podpora a pracovné listy</a></td></tr>
+<tr><td>15</td><td>Občianska náuka</td><td>Strojová analýza vizuálov politických kampaní: žiaci skúmajú, čo AI v kampaniach zvýrazňuje a ako ovplyvňuje divákov. Materiál je v češtine.</td><td><a href="https://kurikulum.aidetem.cz/knowledgebase/medialni-vychova-06-strojova-analyza-politickych-kampani/">Kurikulum aidetem.cz: Mediálna výchova 06</a></td></tr>
+<tr><td>16</td><td>Dejepis</td><td>Bola industrializácia prínosom: AI oponuje a pýta sa na dôkazy. Žiaci obhajujú svoje stanovisko.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Argumentácia</a></td></tr>
+<tr><td>17</td><td>Fyzika</td><td>Prečo sa telesá pohybujú: AI kladie návodné otázky a žiaci sami dospejú k vysvetleniu.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spoločné objavovanie</a></td></tr>
+<tr><td>18</td><td>Anglický jazyk</td><td>Spätná väzba k eseji: žiaci najprv posúdia anonymný vzor podľa kritérií, potom porovnajú svoje hodnotenie s AI.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Spätná väzba</a></td></tr>
+<tr><td>19</td><td>Geografia</td><td>Chyby v texte o obyvateľstve: AI napíše odsek s tromi chybami, žiaci ich nájdu a opravia.</td><td><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">10 spôsobov (chatveskole.cz): Hľadanie chýb</a></td></tr>
+<tr><td>20</td><td>Triednická hodina</td><td>Moja záchranná sieť: žiaci si zapisujú ľudí, na ktorých sa môžu obrátiť. Učiteľ zdôrazní, že AI nie je záchranná sieť.</td><td><a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/metodiky-pre-starsich-ziakov/">Emocionálny kompas: Moja záchranná sieť</a></td></tr>
+</table></div>
+</div>
+</details>
+
+</div>
+</details>
+
+<details class="sec c5">
+<summary>Zdroje</summary>
+<div class="body">
+<p>Stránky webu, ktoré som otvoril (24. 11. 2026):</p>
+<ul>
+<li><a href="https://chatveskole.cz/sk/">Úvodná stránka</a></li>
+<li><a href="https://chatveskole.cz/sk/zaciname/jak-pracovat-s-chatboty">Ako pracovať s chatbotmi</a>, <a href="https://chatveskole.cz/sk/zaciname/dostupne-nastroje">Dostupné nástroje</a>, <a href="https://chatveskole.cz/sk/zaciname/kolik-stoji-chatboti">Koľko stoja chatboty</a>, <a href="https://chatveskole.cz/sk/zaciname/vekove-limity-a-legislativa">Vekové limity a legislatíva</a></li>
+<li><a href="https://chatveskole.cz/sk/funkce/zmeny-2026">Zmeny vo funkciách 2026</a>, <a href="https://chatveskole.cz/sk/funkce/skills">Zručnosti</a>, <a href="https://chatveskole.cz/sk/funkce/projekty">Projekty</a>, <a href="https://chatveskole.cz/sk/funkce/konektory">Konektory</a></li>
+<li><a href="https://chatveskole.cz/sk/prompty">Katalóg promptov</a> a prompty <a href="https://chatveskole.cz/sk/funkce/prompty/kviz">Kvíz</a>, <a href="https://chatveskole.cz/sk/funkce/prompty/prevod-materialu-na-jinou-uroven-obtiznosti">Prevod materiálu na inú úroveň náročnosti</a>, <a href="https://chatveskole.cz/sk/funkce/prompty/zprava-o-pokroku-zaka">Správa o pokroku žiaka</a>, <a href="https://chatveskole.cz/sk/funkce/prompty/reakce-na-stiznost-rodice">Reakcia na sťažnosť</a>, <a href="https://chatveskole.cz/sk/funkce/prompty/tvorba-zpetne-vazby">Tvorba spätnej väzby</a>, <a href="https://chatveskole.cz/sk/funkce/prompty/pozvanka-na-skolni-akci">Pozvánka na školské podujatie</a></li>
+<li>Sady zručností: <a href="https://chatveskole.cz/sk/sady/priprava-vyuky">Príprava vyučovania</a>, <a href="https://chatveskole.cz/sk/sady/komunikace-a-podpora-ucitele">Komunikácia a podpora učiteľa</a>, <a href="https://chatveskole.cz/sk/sady/formativni-hodnoceni">Formatívne hodnotenie</a></li>
+<li><a href="https://chatveskole.cz/sk/ve-vyuce/zpusoby-vyuziti-ai">Desať spôsobov využitia AI</a>, <a href="https://chatveskole.cz/sk/ve-vyuce/tiny">Tiny</a>, <a href="https://chatveskole.cz/sk/ve-vyuce/pravidla-pro-ai">Tvorba pravidiel používania AI</a>, <a href="https://chatveskole.cz/sk/ve-vyuce/doporuceni-zs-ss">Odporúčania pre ZŠ a SŠ</a>, <a href="https://chatveskole.cz/sk/ve-vyuce/metodiky">Metodické materiály</a></li>
+<li><a href="https://chatveskole.cz/sk/vibe-coding/co-je-to">Vibe Coding: čo to je</a>, <a href="https://chatveskole.cz/sk/vibe-coding/materialy-do-vyuky">Materiály na vyučovanie</a></li>
+<li><a href="https://chatveskole.cz/sk/o-webu/ochrana-soukromi">Ochrana súkromia</a></li>
+</ul>
+<p>Odkazy, ktoré web uvádza a ja som ich neotváral: metodiky na tiny.school.</p><p>Ďalšie stránky, z ktorých vychádza časť A (24. 11. 2026): <a href="https://ai.iedu.sk/">ai.iedu.sk</a>, <a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-gramotnost/">AI gramotnosť</a>, <a href="https://ai.iedu.sk/skoly-a-ucitelia/ucime-o-umelej-inteligencii/">Učíme o AI</a>, <a href="https://ai.iedu.sk/skoly-a-ucitelia/metodicky-material-ju-a-pi/">Ju a Pí</a>, <a href="https://ai.iedu.sk/skoly-a-ucitelia/metodicky-material-karty/">Karty</a>, <a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-kompetencie-v-predmetoch/">AI v predmetoch</a>, <a href="https://ai.iedu.sk/skoly-a-ucitelia/ai-a-dusevne-zdravie/">AI a duševné zdravie</a>, <a href="https://ai.iedu.sk/nastroje-ai/bezplatne-nastroje-pre-skoly/">Bezplatné nástroje</a>, <a href="https://ai.iedu.sk/nastroje-ai/narodny-projekt-ai-pre-vsetkych/">Národný projekt</a>, <a href="https://ai.iedu.sk/skoly-a-ucitelia/ako-pouzivat-ai-bezpecne/">Bezpečné používanie AI</a>, <a href="https://ai.iedu.sk/skoly-a-ucitelia/podpora-a-rozvoj-ai-kompetencii/">Podpora a rozvoj AI kompetencií</a>, <a href="https://ai.iedu.sk/rodicia-a-ziaci/">Rodičia a žiaci</a>, <a href="https://aidetem.cz/">aidetem.cz</a>, <a href="https://kurikulum.aidetem.cz/">kurikulum.aidetem.cz</a>, <a href="https://kurikulum.aidetem.cz/koncepce/">Koncepcia</a>, <a href="https://kurikulum.aidetem.cz/vypis-vseho/">Soupis všech materiálů</a>, <a href="https://kurikulum.aidetem.cz/webinare/">Webináře</a>.</p>
+</div>
+</details>
+
+<footer>Oznam pre kolegov a kolegyne, ZŠ s MŠ Novoť. Obsah vychádza z webov ai.iedu.sk (MŠVVaM SR), aidetem.cz a chatveskole.cz/sk (AI dětem, z. s.), stav k 24. 11. 2026.</footer>
+</main>
+<script>
+(function(){
+  var all=function(){return document.querySelectorAll('main details');};
+  document.getElementById('openAll').addEventListener('click',function(){all().forEach(function(d){d.open=true;});});
+  document.getElementById('closeAll').addEventListener('click',function(){all().forEach(function(d){d.open=false;});});
+  window.addEventListener('beforeprint',function(){all().forEach(function(d){d.open=true;});});
+})();
+</script>
+</body>
+</html>
